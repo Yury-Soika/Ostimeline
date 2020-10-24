@@ -1,5 +1,5 @@
 .navbar {
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  background: linear-gradient(#5476d6, #5497d6);
   height: 5rem;
   display: flex;
   justify-content: center;
@@ -8,6 +8,11 @@
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.nav-subbar {
+  top: 5rem;
+  background: linear-gradient(#5497d6, #54add6);
 }
 
 .navbar-container {
@@ -40,6 +45,12 @@
   margin-right: 2rem;
 }
 
+.nav-submenu {
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  width: 90vw;
+}
+
 .nav-item {
   height: 5rem;
 }
@@ -62,6 +73,10 @@
   color: #fff;
 }
 
+.fa-caret-down {
+  margin-left: 0.5rem;
+}
+
 .nav-links-mobile {
   display: none;
 }
@@ -73,6 +88,10 @@
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
+  }
+
+  .nav-subbar {
+    display: none;
   }
 
   .nav-menu {

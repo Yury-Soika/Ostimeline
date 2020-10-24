@@ -2,13 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import './NavBar.css'
+import Dropdown from './Dropdown';
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if(window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if(window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
 
    const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -40,10 +58,14 @@ const NavBar = () => {
                 Home
               </Link>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item'
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
               <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-                About
+                About <i className="fas fa-caret-down"/>
               </Link>
+              {dropdown && <Dropdown />}
             </li>
             <li className='nav-item'>
               <Link to='/downloads' className='nav-links' onClick={closeMobileMenu}>
@@ -51,7 +73,7 @@ const NavBar = () => {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/projects' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/projects/wctablet' className='nav-links' onClick={closeMobileMenu}>
                 Projects
               </Link>
             </li>
