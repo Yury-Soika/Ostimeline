@@ -35,10 +35,9 @@ p {
 .home,
 .about,
 .downloads,
-.projects,
-.sign-up {
+.projects {
   display: flex;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 11.5rem);
   align-items: center;
   justify-content: center;
   font-size: 3rem;
@@ -78,14 +77,12 @@ p {
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
-  height: calc(100vh - 10rem);
+  height: calc(100vh - 16.5rem);
 }
 
 .sign-up {
-  background-image: url('../public/images/img-8.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  min-height: calc(100vh - 11.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

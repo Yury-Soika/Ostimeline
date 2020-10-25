@@ -1,8 +1,15 @@
 import React from 'react';
 import '../../App.css';
+import Form from '../../components/Form';
 
 const SignUp = () => {
-  return <h1 className="sign-up">SIGN UP</h1>;
+  return (
+    <>
+      <div className="sign-up">
+        <Form />
+      </div>
+    </>
+  );
 }
 
 export default SignUp;
