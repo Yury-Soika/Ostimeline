@@ -10,6 +10,7 @@ import Installation from './components/pages/Installation';
 import Downloads from './components/pages/Downloads';
 import Projects from './components/pages/Projects';
 import SignUp from './components/pages/SignUp';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/projects" component={Projects}/>
         <Route path="/sign-up" component={SignUp}/>
       </Switch>
+      <Footer />
     </Router>
   );
 }
