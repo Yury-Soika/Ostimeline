@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../App.css';
-import Form from '../../components/Form';
+import FormRegistration from '../../components/registration/FormRegistration';
 
 const SignUp = () => {
   return (
     <>
       <div className="sign-up">
-        <Form />
+        <FormRegistration />
       </div>
     </>
   );

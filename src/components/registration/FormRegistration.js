@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import FormSignup from './FormSignup';
 import FormSuccess from './FormSuccess';
-import './Form.css';
+import './../Form.css';
 
-const Form = () => {
+const FormRegistration = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const submitForm = () => {
@@ -13,7 +13,7 @@ const Form = () => {
     <>
       <div className="form-container">
         <div className="form-content-left">
-          <img src="public/images/img-1.svg" alt="spaceship" className="form-img"/>
+          <img src="public/images/img-2.svg" alt="spaceship" className="form-img"/>
         </div>
         {isSubmitted ? <FormSuccess /> : <FormSignup submitForm = {submitForm} />}
       </div>
@@ -21,4 +21,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default FormRegistration
