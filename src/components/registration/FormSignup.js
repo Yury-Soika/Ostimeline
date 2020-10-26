@@ -2,7 +2,7 @@ import React from 'react';
 import useForm from './useForm';
 import { button } from 'react';
 import validate from './validateInfo';
-import './Form.css';
+import './../Form.css';
 
 const FormSignup = ({submitForm}) => {
   const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validate);
@@ -90,9 +90,6 @@ const FormSignup = ({submitForm}) => {
         >
           SignUp
         </button>
-        <span className="form-input-login">
-          Already have an account? Login <a href="#">here</a>
-        </span>
       </form>
     </div>
   )

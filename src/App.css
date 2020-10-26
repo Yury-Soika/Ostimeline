@@ -80,7 +80,8 @@ p {
   height: calc(100vh - 16.5rem);
 }
 
-.sign-up {
+.sign-up,
+.login {
   min-height: calc(100vh - 11.5rem);
   display: flex;
   justify-content: center;

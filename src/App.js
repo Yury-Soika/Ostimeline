@@ -10,6 +10,7 @@ import Installation from './components/pages/Installation';
 import Downloads from './components/pages/Downloads';
 import Projects from './components/pages/Projects';
 import SignUp from './components/pages/SignUp';
+import Login from './components/pages/Login';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/installation" component={Installation}/>
         <Route path="/downloads" component={Downloads}/>
         <Route path="/projects" component={Projects}/>
+        <Route path="/login" component={Login}/>
         <Route path="/sign-up" component={SignUp}/>
       </Switch>
       <Footer />
