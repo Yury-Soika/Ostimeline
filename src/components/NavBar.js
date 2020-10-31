@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, logout } from './store/userSlice';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import './NavBar.css'
@@ -8,6 +10,8 @@ const NavBar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [dropdown, setDropdown] = useState(false);
+
+  const user = useSelector(selectUser);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -36,19 +40,15 @@ const NavBar = () => {
     }
   };
 
-  useEffect(() => {
-    showButton();
-  }, []);
-
   window.addEventListener('resize', showButton);
 
   return (
     <>
 	    <nav className="navbar">
 	      <div className="navbar-container">
-	        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-	          ostimeline
-	        </Link>
+  	        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+  	          ostimeline {user.user && <span>, {user.user.role}</span>}
+  	        </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -78,12 +78,15 @@ const NavBar = () => {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
-                Login
-              </Link>
+              
+                <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
+                  {user.user && <span>Logout</span>}
+                  {!user.user && <span>Login</span>}
+                </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>LOGIN</Button>}
+          {button && user.user && <Button buttonStyle='btn--outline'>LOGOUT</Button>}
+          {button && !user.user &&  <Button buttonStyle='btn--outline'>LOGIN</Button>}
 
 	      </div>
 	    </nav>
