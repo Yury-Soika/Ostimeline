@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Provider } from 'react-redux';
 import ReactDOM from "react-dom";
-import NavBar from "./components/NavBar"
+import store from "./components/store/store";
+import NavBar from "./components/NavBar";
 import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Home from './components/pages/Home';
@@ -34,4 +36,9 @@ const App = () => {
 
 export default App;
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
