@@ -25,7 +25,7 @@ const Footer = () => {
             </Link>
             <Link
               className="social-icon-link instagram"
-              to={"//www.instagram.com"}
+              to={"//www.instagram.com/yura_soiko/"}
               target="_blank"
               aria-label='Instagram'
             >

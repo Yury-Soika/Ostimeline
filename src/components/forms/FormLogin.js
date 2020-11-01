@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { selectUser, login, logout } from './../store/userSlice';
+import { selectUser, login, logout, reset } from './../store/userSlice';
 import { useHistory } from "react-router-dom";
-import { button } from 'react';
 import './Form.css';
 
 const FormLogin = () => {
@@ -15,13 +13,13 @@ const FormLogin = () => {
 
   const user = useSelector(selectUser);
   const userStatus = useSelector((state) => state.user.status);
-  const authError = useSelector((state) => state.user.error);
+  const error = useSelector((state) => state.user.error);
   const dispatch = useDispatch();
   const history = useHistory();
   
   // reset login status
   useEffect(() => {
-    dispatch(logout()); 
+    dispatch(logout(user));
   }, []);
 
   const handleChange = e => {
@@ -93,7 +91,7 @@ const FormLogin = () => {
             />
             {submitted && !values.password &&<p >Password is required</p>}
           </div>
-          {authError && <p>{authError}</p>}
+          {error && <p>{error}</p>}
           <button 
             className="form-input-btn"
             type="submit"

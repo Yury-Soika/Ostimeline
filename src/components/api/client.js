@@ -1,12 +1,14 @@
 // A tiny wrapper around fetch(), borrowed from
 // https://kentcdodds.com/blog/replace-axios-with-a-simple-custom-fetch-wrapper
 
-const localStorageKey = 'ABRAKADABRA';
+const localStorageKey = window.localStorage.getItem('user');
 
 export async function client(endpoint, { body, ...customConfig } = {}) {
   const headers = { 'Content-Type': 'application/json' };
   
-  const token = window.localStorage.getItem(localStorageKey);
+  const token = localStorageKey 
+    ? JSON.parse(localStorageKey).token
+    : null;
   
   if (token) {
     headers.Authorization = `Bearer ${token}`
@@ -30,13 +32,13 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
      if (response.status === 401) {
       logout();
       window.location.assign(window.location)
-      return
+      return;
     }
     data = await response.json();
     if (response.ok) {
       return data;
     }
-    throw new Error(response.statusText)
+    throw new Error(response.message)
   } catch (err) {
     return Promise.reject(err.message ? err.message : data)
   }
@@ -51,5 +53,5 @@ client.post = function (endpoint, body, customConfig = {}) {
 }
 
 function logout() {
-  window.localStorage.removeItem(localStorageKey);
+  window.localStorage.removeItem('user');
 }

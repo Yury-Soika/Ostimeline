@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser, logout } from './store/userSlice';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
@@ -77,8 +77,14 @@ const NavBar = () => {
                 Projects
               </Link>
             </li>
+            {user.user && user.user.role === 'Admin' &&
+              <li className='nav-item'>
+                <Link to='/registration' className='nav-links' onClick={closeMobileMenu}>
+                  Registration
+                </Link>
+              </li>
+            }
             <li className='nav-item'>
-              
                 <Link to='/login' className='nav-links-mobile' onClick={closeMobileMenu}>
                   {user.user && <span>Logout</span>}
                   {!user.user && <span>Login</span>}
