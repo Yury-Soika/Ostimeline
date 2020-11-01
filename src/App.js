@@ -9,7 +9,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Architecture from './components/pages/Architecture';
 import Installation from './components/pages/Installation';
-import Downloads from './components/pages/Downloads';
+import Downloads from './components/downloads/Downloads';
 import Projects from './components/pages/Projects';
 import Registration from './components/pages/Registration';
 import Login from './components/pages/Login';

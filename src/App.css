@@ -34,13 +34,10 @@ p {
 
 .home,
 .about,
-.downloads,
+.content,
 .projects {
   display: flex;
   height: calc(100vh - 11.5rem);
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
 }
 
 .home {
@@ -61,14 +58,14 @@ p {
   font-size: 100px;
 }
 
-.downloads {
+/*.downloads {
   background-image: url('../public/images/img-1.jpg');
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
-}
+}*/
 
 .projects {
   background-image: url('../public/images/img-7.jpg');
