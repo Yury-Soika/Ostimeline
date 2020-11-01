@@ -11,7 +11,7 @@ import Architecture from './components/pages/Architecture';
 import Installation from './components/pages/Installation';
 import Downloads from './components/pages/Downloads';
 import Projects from './components/pages/Projects';
-import SignUp from './components/pages/SignUp';
+import Registration from './components/pages/Registration';
 import Login from './components/pages/Login';
 import Footer from './components/Footer';
 
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/downloads" component={Downloads}/>
         <Route path="/projects" component={Projects}/>
         <Route path="/login" component={Login}/>
-        <Route path="/sign-up" component={SignUp}/>
+        <Route path="/registration" component={Registration}/>
       </Switch>
       <Footer />
     </Router>

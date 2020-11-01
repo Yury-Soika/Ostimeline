@@ -3,7 +3,7 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -70,7 +70,8 @@
   color: #fff;
 }
 
-.form-inputs {
+.form-inputs,
+.form-selects {
   margin-bottom: 0.5rem;
   width: 80%;
 }
@@ -89,7 +90,8 @@
   color: #fff;
 }
 
-.form-input {
+.form-input,
+.form-select {
   display: block;
   padding-left: 10px;
   outline: none;
