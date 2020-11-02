@@ -1,4 +1,4 @@
-export const MenuItems = [
+export const MenuAbout = [
   {
     title: 'About ostimeline',
     path: '/about',
