@@ -9,71 +9,27 @@ body {
 }
 
 h1 { 
-  font-size: 2.2rem; 
+  font-size: 2.2rem;
 } 
      
 h2 { 
-  font-size: 2.0rem;     
+  font-size: 2.0rem;
 } 
      
 h3 { 
-  font-size: 1.8rem; 
+  font-size: 1.8rem;
 } 
      
 h4 { 
-  font-size: 1.6rem;     
+  font-size: 1.6rem;
 } 
      
 h5 { 
-  font-size: 1.4rem;     
+  font-size: 1.4rem;
 } 
      
 p { 
-  font-size: 1.2rem;      
-}
-
-.home,
-.about,
-.content,
-.projects {
-  display: flex;
-  height: calc(100vh - 11.5rem);
-}
-
-.home {
-  background-image: url('../public/images/img-home.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.about {
-  background-image: url('../public/images/img-2.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-/*.downloads {
-  background-image: url('../public/images/img-1.jpg');
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}*/
-
-.projects {
-  background-image: url('../public/images/img-7.jpg');
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  font-size: 1.2rem;
 }
 
 .registration,
@@ -82,4 +38,45 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  min-height: calc(100vh - 11.5rem);
+}
+
+.content li {
+  font-size: 1.2rem;
+  margin-left: 3rem;
+}
+
+.content main {
+  display: flex;
+  flex-flow: column;
+}
+
+.content section {
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 2rem;
+  margin: 2rem;
+}
+
+.content h1 {
+  margin: 1rem 0;
+}
+
+.content p {
+  margin: 0.7rem 0;
+}
+
+.content img {
+  display: block;
+  margin: 1rem auto;
+}
+
+.fa-link {
+  font-size: 2.2 rem;
 }
