@@ -1,14 +1,11 @@
 import React from 'react';
-import '../../App.css';
 import FormLogin from '../../components/forms/FormLogin';
 
 const Login = () => {
   return (
-    <>
-      <div className="login">
-        <FormLogin />
-      </div>
-    </>
+    <div className="content" style={{alignItems: "center"}}>
+      <FormLogin />
+    </div>
   );
 }
 

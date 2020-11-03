@@ -1,0 +1,36 @@
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  min-height: calc(100vh - 11.5rem);
+
+  li {
+    font-size: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  main {
+    display: flex;
+    flex-flow: column;
+  }
+
+  section {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    padding: 2rem;
+    border-radius: 2rem;
+    margin: 2rem;
+  }
+
+  h1 {
+    margin: 1rem 0;
+  }
+
+  p {
+    margin: 0.7rem 0;
+  }
+
+  img {
+    display: block;
+    margin: 1rem auto;
+  }
+}

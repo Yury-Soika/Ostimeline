@@ -1,7 +1,5 @@
 import React from 'react';
 import Partners from './../Partners';
-import './../Button.css';
-import '../../App.css';
 
 const Downloads = () => {
   const apiUrl = 'http://localhost:4000/downloads/';

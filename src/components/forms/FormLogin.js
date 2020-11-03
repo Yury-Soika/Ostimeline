@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, login, logout, reset } from './../store/userSlice';
 import { useHistory } from "react-router-dom";
-import './Form.css';
+import './Form.scss';
 
 const FormLogin = () => {
   const [values, setValues] = useState({
@@ -46,13 +46,13 @@ const FormLogin = () => {
   }, [userStatus]);
 
   return (
-    <div className="form-container">
+    <div className="form">
       <div className="form-content-left">
-        <img src="public/images/img-1.svg" alt="spaceship" className="form-img"/>
+        <img src="public/images/login.svg" alt="spaceship" className="form-img"/>
       </div>
 
       <div className="form-content-right">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
           <h1>We are glad to see you!</h1>
           <div className="form-inputs">
             <label 

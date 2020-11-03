@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, registration, reset } from './../store/userSlice';
-import './../forms/Form.css';
+import './Form.scss';
 
 const FormRegistration = () => {
   const [values, setValues] = useState({
@@ -47,12 +47,12 @@ const FormRegistration = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form">
       <div className="form-content-left">
-        <img src="public/images/img-2.svg" alt="spaceship" className="form-img"/>
+        <img src="public/images/registration.svg" alt="spaceship" className="form-img"/>
       </div>
       <div className="form-content-right">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
           <h1>Get started with us today!</h1>
           <div className="form-inputs">
             <label 

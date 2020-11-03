@@ -1,6 +1,5 @@
 import React from 'react';
 import Partners from './../Partners';
-import '../../App.css';
 
 const Architecture = () => {
   return (

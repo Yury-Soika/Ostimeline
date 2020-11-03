@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Button } from './Button';
 import { MenuAbout } from './MenuAbout';
 import { MenuProjects } from './MenuProjects';
-import './NavBar.css'
+import './NavBar.scss'
 import Dropdown from './Dropdown';
 
 const NavBar = () => {
@@ -29,7 +29,7 @@ const NavBar = () => {
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
 
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
+        <ul className={click ? "navbar-menu active" : "navbar-menu"}>
 
           <NavItem name="Home" link="/" closeMobileMenu={closeMobileMenu}/>
 
@@ -46,10 +46,10 @@ const NavBar = () => {
 
           {user.user 
             && user.user.role === "Admin" 
-            && <NavItem name="Projects" link="/registration" closeMobileMenu={closeMobileMenu}/>}
+            && <NavItem name="Registration" link="/registration" closeMobileMenu={closeMobileMenu}/>}
 
-          <li className="nav-item">
-              <Link to="/login" className="nav-links-mobile" onClick={closeMobileMenu}>
+          <li className="navbar-item">
+              <Link to="/login" className="navbar-links-mobile" onClick={closeMobileMenu}>
                 {user.user && <span>Logout</span>}
                 {!user.user && <span>Login</span>}
               </Link>
@@ -88,8 +88,8 @@ const NavItem = (props) => {
   }, [open]);
 
   return (
-    <li ref={node} className="nav-item" onClick={() => setOpen(!open)}>
-      <Link to={props.link} className="nav-links" onClick={props.closeMobileMenu}>
+    <li ref={node} className="navbar-item" onClick={() => setOpen(!open)}>
+      <Link to={props.link} className="navbar-links" onClick={props.closeMobileMenu}>
         {props.name} {props.iconClass && <i className={props.iconClass}/>}
       </Link>
 
