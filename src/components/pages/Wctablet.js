@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashLink, NavHashLink } from 'react-router-hash-link';
 import Partners from './../Partners';
 import '../../App.css';
 
@@ -6,8 +7,13 @@ const Wctablet = () => {
   return (
     <div className="content">
       <main>
-        <section>
-          <h3>QEMU and mouse integration in Windows 95 and Windows 95 OSR2 </h3>
+        <section id="win95">
+          <h3>
+            QEMU and mouse integration in Windows 95 and Windows 95 OSR2 <HashLink smooth to={`${location.pathname}#win95`}>
+              <i class="fas fa-link"></i>
+            </HashLink>
+          </h3>
+          
 
           <p>
             Special wctablet serial device supported by QEMU is able to bring mouse integration in the
@@ -75,8 +81,12 @@ const Wctablet = () => {
           </ol>
         </section>
 
-        <section>
-          <h3>QEMU and mouse integration in Windows 3.x </h3>
+        <section id="win3x">
+          <h3>
+            QEMU and mouse integration in Windows 3.x <HashLink smooth to={`${location.pathname}#win3x`}>
+            <i class="fas fa-link"></i>
+          </HashLink>
+          </h3>
 
           <p>
             Special wctablet serial device supported by QEMU is able to bring mouse integration in the
@@ -208,8 +218,11 @@ const Wctablet = () => {
           </ol>
         </section>
 
-        <section>
-          <h3>Legacy OS mouse integration</h3>
+        <section id="wctablet">
+          <h3>Legacy OS mouse integration <HashLink smooth to={`${location.pathname}#wctablet`}>
+              <i class="fas fa-link"></i>
+            </HashLink>
+          </h3>
 
           <h4>Problem description</h4>
 
