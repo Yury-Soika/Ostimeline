@@ -10,7 +10,8 @@ import About from './components/pages/About';
 import Architecture from './components/pages/Architecture';
 import Installation from './components/pages/Installation';
 import Downloads from './components/downloads/Downloads';
-import Projects from './components/pages/Projects';
+import Wctablet from './components/pages/Wctablet';
+import Gstreamer from './components/pages/Gstreamer';
 import Registration from './components/pages/Registration';
 import Login from './components/pages/Login';
 import Footer from './components/Footer';
@@ -25,7 +26,8 @@ const App = () => {
         <Route path="/architecture" component={Architecture}/>
         <Route path="/installation" component={Installation}/>
         <Route path="/downloads" component={Downloads}/>
-        <Route path="/projects" component={Projects}/>
+        <Route path="/wctablet" component={Wctablet}/>
+        <Route path="/gstreamer" component={Gstreamer}/>
         <Route path="/login" component={Login}/>
         <Route path="/registration" component={Registration}/>
       </Switch>
