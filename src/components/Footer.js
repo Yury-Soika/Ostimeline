@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button } from './Button';
-import './Footer.css';
+import './Footer.scss';
+import './Social.scss';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return(
-    <div className="footer-container">
+    <div className="footer">
       <section className="social-media">
         <div className="social-media-wrap">
           <div className="footer-logo">

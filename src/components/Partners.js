@@ -1,5 +1,5 @@
 import React from 'react';
-import './Partners.css';
+import './Partners.scss';
 
 const Partners = () => {
   return (
