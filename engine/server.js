@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
 
 // api routes
-app.use('/users', require('./app/users/users.controller'));
+app.use('/users', require('./app/users/user.controller'));
+app.use('/posts', require('./app/posts/post.controller'));
 app.use('/downloads', require('./app/downloads/downloads.controller'));
 
 // global error handler

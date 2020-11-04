@@ -17,5 +17,6 @@ const database = mongoose.connection;
 database.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 module.exports = {
-  User: require('../users/user.model')
+  User: require('../users/user.model'),
+  Post: require('../posts/post.model')
 };

@@ -17,8 +17,6 @@ module.exports = {
 async function authenticate({ username, password }) {
   const user = await User.findOne({ username });
 
-  console.log(user);
-
   if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
     throw 'Username or password is incorrect';
   }
@@ -54,7 +52,12 @@ async function create(userParam) {
   }
 
   // save user
-  await user.save();
+  try {
+    await user.save();
+  } catch(e) {
+    throw(e.message);
+  }
+  
 }
 
 async function update(id, userParam) {
