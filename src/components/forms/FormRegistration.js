@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, registration, reset } from './../store/userSlice';
+import { selectUser, registration, reset } from './userSlice';
 import './Form.scss';
 
 const FormRegistration = () => {

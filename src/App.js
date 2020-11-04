@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { Provider } from 'react-redux';
 import ReactDOM from "react-dom";
-import store from "./components/store/store";
+import store from "./components/store";
 import NavBar from "./components/NavBar";
-import {BrowserRouter as Router, Switch, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Home from './components/pages/Home';
+import News from './components/pages/News';
 import About from './components/pages/About';
 import Architecture from './components/pages/Architecture';
 import Installation from './components/pages/Installation';
@@ -15,13 +15,15 @@ import Gstreamer from './components/pages/Gstreamer';
 import Registration from './components/pages/Registration';
 import Login from './components/pages/Login';
 import Footer from './components/Footer';
+import { SinglePostPage } from './components/posts/SinglePostPage';
+import { EditPostForm } from './components/posts/EditPostForm';
 
 const App = () => {
   return (
     <Router>
 	    <NavBar />
       <Switch>
-        <Route path="/" exact component={Home}/>
+        <Route path="/" exact component={News}/>
         <Route path="/about" component={About}/>
         <Route path="/architecture" component={Architecture}/>
         <Route path="/installation" component={Installation}/>
@@ -30,6 +32,8 @@ const App = () => {
         <Route path="/gstreamer" component={Gstreamer}/>
         <Route path="/login" component={Login}/>
         <Route path="/registration" component={Registration}/>
+        <Route path="/posts/:postId" exact component={SinglePostPage} />
+        <Route path="/editPost/:postId" exact component={EditPostForm} />
       </Switch>
       <Footer />
     </Router>
