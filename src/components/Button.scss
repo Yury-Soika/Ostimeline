@@ -12,6 +12,13 @@
 	  border: 1px solid #DCDCDC;
 	}
 
+  &--primary:hover {
+    transition: all 0.3s ease-out;
+    background-color: #DCDCDC;
+    color: #242424;
+    transition: 250ms;
+  }
+
 	&--outline {
 	  background-color: transparent;
 	  color: #fff;
@@ -20,9 +27,17 @@
 	  transition: all 0.3s ease-out;
 	}
 
+  &--outline:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+  }
+
 	&--medium {
 	  padding: 8px 20px;
 	  font-size: 18px;
+    margin: 0.5rem;
 	}
 
 	&--large {
@@ -31,18 +46,39 @@
 	  margin: 0.5rem;
 	}
 
-	&--large:hover,
-	&--medium:hover {
-	  transition: all 0.3s ease-out;
-	  background: #fff;
-	  color: #242424;
-	  transition: 250ms;
-	}
+  &--view {
+    background-color: #abdfff;
+  }
 
-	&--primary:hover {
-	  transition: all 0.3s ease-out;
-	  background-color: #DCDCDC;
-	  color: #242424;
-	  transition: 250ms;
-	}
+  &--view:hover {
+    background-color: #1e90ff;
+    color: #fff;
+  }
+
+  &--delete {
+    background-color: #FFC0CB;
+  }
+
+  &--delete:hover {
+    background-color: #ff4040;
+    color: #fff;
+  }
+
+  &--save {
+    background-color: #98FF98;
+  }
+
+  &--save:hover {
+    background-color: #00d200;
+    color: #fff;
+  }
+
+  &--edit {
+    background-color: #e2b9ff;
+  }
+
+  &--edit:hover {
+    background-color: #8b00ff;
+    color: #fff;
+  }
 }

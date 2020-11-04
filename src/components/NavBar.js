@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser, logout } from './store/userSlice';
-import { Link, NavLink } from 'react-router-dom';
+import { selectUser } from './forms/userSlice';
+import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import { MenuAbout } from './MenuAbout';
 import { MenuProjects } from './MenuProjects';
@@ -10,9 +10,7 @@ import Dropdown from './Dropdown';
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
-  const [about, setAbout] = useState(undefined);
-  const [project, setProject] = useState(undefined);
-
+  
   const user = useSelector(selectUser);
 
   const handleClick = () => setClick(!click);
@@ -31,7 +29,7 @@ const NavBar = () => {
 
         <ul className={click ? "navbar-menu active" : "navbar-menu"}>
 
-          <NavItem name="Home" link="/" closeMobileMenu={closeMobileMenu}/>
+          <NavItem name="News" link="/" closeMobileMenu={closeMobileMenu}/>
 
           <NavItem name="About" link="#" iconClass="fas fa-caret-down" closeMobileMenu={closeMobileMenu}>
             <Dropdown menuItem={MenuAbout} />
