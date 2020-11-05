@@ -8,8 +8,6 @@ const Role = require('../_helpers/role');
 router.post('/authenticate', authenticate);
 router.post('/register', authorize(Role.Admin), register);
 router.get('/', authorize(Role.Admin), getAll);
-router.get('/current', getCurrent);
-router.get('/:id', authorize(), getById);
 router.put('/:id', authorize(Role.Admin), update);
 router.delete('/:id', authorize(Role.Admin), _delete);
 
@@ -23,13 +21,7 @@ function authenticate(req, res, next) {
 
 function register(req, res, next) {
     userService.create(req.body)
-        .then(() => res.json({}))
-        .catch(err => next(err));
-}
-
-function getCurrent(req, res, next) {
-    userService.getById(req.user.sub)
-        .then(user => user ? res.json(user) : res.sendStatus(404))
+        .then(user => res.json(user))
         .catch(err => next(err));
 }
 
@@ -39,23 +31,9 @@ function getAll(req, res, next) {
         .catch(err => next(err));
 }
 
-function getById(req, res, next) {
-    const currentUser = req.user;
-    const id = req.params.id;
-
-    // only allow admins to access other user records
-    if (id !== currentUser.sub && currentUser.role !== Role.Admin) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
-
-    userService.getById(req.params.id)
-        .then(user => user ? res.json(user) : res.sendStatus(404))
-        .catch(err => next(err));
-}
-
 function update(req, res, next) {
     userService.update(req.params.id, req.body)
-        .then(() => res.json({}))
+        .then(user => res.json(user))
         .catch(err => next(err));
 }
 
