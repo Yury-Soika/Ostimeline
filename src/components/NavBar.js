@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from './forms/userSlice';
+import { selectUser } from './users/userSlice';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import { MenuAbout } from './MenuAbout';
@@ -44,7 +44,7 @@ const NavBar = () => {
 
           {user.user 
             && user.user.role === "Admin" 
-            && <NavItem name="Registration" link="/registration" closeMobileMenu={closeMobileMenu}/>}
+            && <NavItem name="Admin" link="/admin" closeMobileMenu={closeMobileMenu}/>}
 
           <li className="navbar-item">
               <Link to="/login" className="navbar-links-mobile" onClick={closeMobileMenu}>

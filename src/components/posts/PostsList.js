@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { selectUser } from '../forms/userSlice';
+import { selectUser } from '../users/userSlice';
 import {
   selectAllPosts,
   fetchPosts,
@@ -32,7 +32,7 @@ let PostExcerpt = ({ postId }) => {
     <section className="post-excerpt" key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content}</p>
-      <Link to={`/posts/${post.id}`} className="button muted-button">
+      <Link to={`/posts/${post.id}`}>
         <button type="button" className="btn btn--primary btn--medium btn--view">
           View post
         </button>
@@ -48,7 +48,7 @@ PostExcerpt = React.memo(PostExcerpt);
 
 export const PostsList = () => {
   const dispatch = useDispatch();
-  const orderedPostIds = useSelector(selectPostIds)
+  const orderedPostIds = useSelector(selectPostIds);
   const posts = useSelector(selectAllPosts);
   const postStatus = useSelector(state => state.posts.status)
 

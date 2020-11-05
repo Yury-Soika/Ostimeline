@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { selectUser } from '../forms/userSlice';
+import { selectUser } from '../users/userSlice';
 import { selectPostById, deletePost } from './postsSlice';
 import Partners from './../Partners';
 
