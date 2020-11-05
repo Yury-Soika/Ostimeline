@@ -1,14 +1,11 @@
 import React from 'react';
-import '../../App.css';
-import FormAuthorization from '../../components/authorization/FormAuthorization';
+import LoginUserForm from '../users/LoginUserForm';
 
 const Login = () => {
   return (
-    <>
-      <div className="login">
-        <FormAuthorization />
-      </div>
-    </>
+    <div className="content" style={{alignItems: "center"}}>
+      <LoginUserForm />
+    </div>
   );
 }
 

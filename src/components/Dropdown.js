@@ -1,34 +1,30 @@
 import React, { useState } from 'react';
-import { MenuItems } from './MenuItems';
-import './Dropdown.css';
+import './Dropdown.scss';
 import { Link } from 'react-router-dom';
 
-function Dropdown() {
+function Dropdown(props) {
   const [click, setClick] = useState(false);
 
-  const handleClick = () => setClick(!click);
-
   return (
-    <>
-      <ul
-        onClick={handleClick}
-        className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
-      >
-        {MenuItems.map((item, index) => {
-          return (
-            <li key={index}>
-              <Link
-                className={item.cName}
-                to={item.path}
-                onClick={() => setClick(false)}
-              >
-                {item.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    <ul
+      onClick={() => setClick(!click)}
+      className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
+    >
+
+      {props.menuItem && props.menuItem.map((item, index) => {
+        return (
+          <li key={index}>
+            <Link
+              className={item.cName}
+              to={item.path}
+              onClick={() => setClick(false)}
+            >
+              {item.title}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 

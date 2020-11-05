@@ -27,14 +27,22 @@
     "file-loader": "^6.1.1",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.5.0",
+    "sass": "^1.28.0",
+    "sass-loader": "^10.0.5",
     "style-loader": "^2.0.0",
     "webpack": "^5.1.3",
     "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@babel/plugin-transform-regenerator": "^7.12.1",
+    "@reduxjs/toolkit": "^1.4.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.2.2",
+    "regenerator-runtime": "^0.13.7"
   }
 }
