@@ -6,6 +6,7 @@ logs
 **/*.backup.*
 **/*.back.*
 
+config.json
 node_modules
 bower_components
 
