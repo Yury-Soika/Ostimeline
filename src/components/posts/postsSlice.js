@@ -1,16 +1,16 @@
-import { createSlice, nanoid, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import { client } from '../api/client';
 
 const apiUrl = 'http://localhost:4000';
 
 const postsAdapter = createEntityAdapter({
   sortComparer: (a, b) => b.createdDate.localeCompare(a.createdDate)
-})
+});
 
 const initialState = postsAdapter.getInitialState({
   status: 'idle',
   error: null
-})
+});
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await client.get(`${apiUrl}/posts`);

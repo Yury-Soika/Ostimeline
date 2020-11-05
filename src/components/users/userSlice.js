@@ -1,16 +1,18 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import regeneratorRuntime from "regenerator-runtime";
-import { client } from './../api/client';
+import { client } from '../api/client';
 
 const apiUrl = 'http://localhost:4000';
 
-const initialState = {
+const usersAdapter = createEntityAdapter();
+
+const initialState = usersAdapter.getInitialState({
   user: localStorage.getItem('user')
     ? JSON.parse(localStorage.getItem('user'))
     : null,
   status: 'idle',
   error: null
-};
+});
 
 export const login = createAsyncThunk('users/authenticate', async ({username, password}) => {
   const response = await client.post(`${apiUrl}/users/authenticate`, {username, password});
@@ -18,14 +20,28 @@ export const login = createAsyncThunk('users/authenticate', async ({username, pa
   return response;
 });
 
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+  const response = await client.get(`${apiUrl}/users`);
+  return response;
+});
 
-export const registration = createAsyncThunk('users/register', async (values) => {
+export const registrationUser = createAsyncThunk('users/registrationUser', async (values) => {
   const response = await client.post(`${apiUrl}/users/register`, values);
   return response;
 });
 
+export const updateUser = createAsyncThunk('users/updateUser', async user => {
+  const response = await client.put(`${apiUrl}/users/${user.id}`, user.change);
+  return response;
+});
+
+export const deleteUser = createAsyncThunk('users/deleteUser', async id => {
+  const response = await client.delete(`${apiUrl}/users/${id}`);
+  return response;
+});
+
 const userSlice = createSlice({
-  name: 'users',
+  name: 'user',
   initialState,
   reducers: {
     reset(state) {
@@ -44,29 +60,30 @@ const userSlice = createSlice({
     [login.pending]: (state, action) => {
       state.status = 'loading';
     },
-
     [login.fulfilled]: (state, action) => {
       state.status = 'succeeded';
       state.user = action.payload;
     },
-
     [login.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },
-
-    [registration.pending]: (state, action) => {
+    [fetchUsers.pending]: (state, action) => {
       state.status = 'loading';
     },
-
-    [registration.fulfilled]: (state, action) => {
+    [fetchUsers.fulfilled]: (state, action) => {
       state.status = 'succeeded';
+      usersAdapter.upsertMany(state, action.payload);
     },
-
-    [registration.rejected]: (state, action) => {
+    [fetchUsers.rejected]: (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     },
+    [registrationUser.fulfilled]: usersAdapter.addOne,
+    [updateUser.fulfilled]: usersAdapter.upsertOne,
+    [deleteUser.fulfilled]: (state, action) => {
+      usersAdapter.removeOne(state, action.meta.arg);
+    }
   }
 });
 
@@ -75,3 +92,8 @@ export default userSlice.reducer;
 export const selectUser = state => state.user;
 export const { logout } = userSlice.actions;
 export const { reset } = userSlice.actions;
+export const {
+  selectAll: selectAllUsers,
+  selectById: selectUserById,
+  selectIds: selectUserIds
+} = usersAdapter.getSelectors(state => state.user);

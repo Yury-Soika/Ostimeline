@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, login, logout } from './userSlice';
+import { selectUser, login, logout, reset } from './userSlice';
 import { useHistory } from "react-router-dom";
-import './Form.scss';
+import './User.scss';
 
-const FormLogin = () => {
+const LoginUserForm = () => {
   const [values, setValues] = useState({
     username: '',
     password: ''
@@ -42,22 +42,23 @@ const FormLogin = () => {
   useEffect(() => { 
     if(userStatus === 'succeeded') {
       history.push('/');
+      dispatch(reset(user));
     }
   }, [userStatus]);
 
   return (
-    <div className="form">
-      <div className="form-content-left">
-        <img src="public/images/login.svg" alt="spaceship" className="form-img"/>
+    <div className="user">
+      <div className="user-content-left">
+        <img src="public/images/login.svg" alt="spaceship" className="user-img"/>
       </div>
 
-      <div className="form-content-right">
-        <form className="form-container" onSubmit={handleSubmit}>
+      <div className="user-content-right">
+        <form className="user-container" onSubmit={handleSubmit}>
           <h1>We are glad to see you!</h1>
-          <div className="form-inputs">
+          <div className="user-inputs">
             <label 
               htmlFor="username"
-              className="form-label"
+              className="user-label"
             >
               Username
             </label>
@@ -65,7 +66,7 @@ const FormLogin = () => {
               id="username"
               type="text"
               name="username"
-              className="form-input"
+              className="user-input"
               placeholder="Enter your username"
               value={values.username}
               onChange={handleChange}
@@ -73,10 +74,10 @@ const FormLogin = () => {
             {submitted && !values.username &&<p >Username is required</p>}
           </div>
 
-          <div className="form-inputs">
+          <div className="user-inputs">
             <label 
               htmlFor="password"
-              className="form-label"
+              className="user-label"
             >
               Password
             </label>
@@ -84,7 +85,7 @@ const FormLogin = () => {
               id="password" 
               type="password"
               name="password"
-              className="form-input"
+              className="user-input"
               placeholder="Enter your Password"
               value={values.password}
               onChange={handleChange}
@@ -93,7 +94,7 @@ const FormLogin = () => {
           </div>
           {error && <p>{error}</p>}
           <button 
-            className="form-input-btn"
+            className="user-input-btn"
             type="submit"
           >
             {userStatus === 'loading' && <i className="fa fa-spinner fa-spin"></i>}
@@ -105,4 +106,4 @@ const FormLogin = () => {
   )
 }
 
-export default FormLogin
+export default LoginUserForm

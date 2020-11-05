@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { AddPostForm } from '../posts/AddPostForm';
 import { PostsList } from '../posts/PostsList';
-import { selectUser } from '../forms/userSlice';
+import { selectUser } from '../users/userSlice';
 import Partners from './../Partners';
 import '../../App.css';
 import './../content.scss';

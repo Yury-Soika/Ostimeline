@@ -12,11 +12,13 @@ import Installation from './components/pages/Installation';
 import Downloads from './components/pages/Downloads';
 import Wctablet from './components/pages/Wctablet';
 import Gstreamer from './components/pages/Gstreamer';
-import Registration from './components/pages/Registration';
+import Admin from './components/pages/Admin';
 import Login from './components/pages/Login';
 import Footer from './components/Footer';
 import { SinglePostPage } from './components/posts/SinglePostPage';
 import { EditPostForm } from './components/posts/EditPostForm';
+import RegistrationUserForm from './components/users/RegistrationUserForm';
+import EditUserForm from './components/users/EditUserForm';
 
 const App = () => {
   return (
@@ -31,9 +33,11 @@ const App = () => {
         <Route path="/wctablet" component={Wctablet}/>
         <Route path="/gstreamer" component={Gstreamer}/>
         <Route path="/login" component={Login}/>
-        <Route path="/registration" component={Registration}/>
+        <Route path="/admin" component={Admin}/>
+        <Route path="/registration" component={RegistrationUserForm}/>
         <Route path="/posts/:postId" exact component={SinglePostPage} />
         <Route path="/editPost/:postId" exact component={EditPostForm} />
+        <Route path="/editUser/:userId" exact component={EditUserForm} />
       </Switch>
       <Footer />
     </Router>

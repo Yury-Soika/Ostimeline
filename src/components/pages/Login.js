@@ -1,10 +1,10 @@
 import React from 'react';
-import FormLogin from '../../components/forms/FormLogin';
+import LoginUserForm from '../users/LoginUserForm';
 
 const Login = () => {
   return (
     <div className="content" style={{alignItems: "center"}}>
-      <FormLogin />
+      <LoginUserForm />
     </div>
   );
 }
