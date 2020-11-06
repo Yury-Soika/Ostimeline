@@ -6,6 +6,9 @@ logs
 **/*.backup.*
 **/*.back.*
 
+# testing
+coverage
+
 config.json
 node_modules
 bower_components
