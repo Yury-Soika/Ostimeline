@@ -2,11 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from './users/userSlice';
 import { Link } from 'react-router-dom';
-import { Button } from './Button';
 import { MenuAbout } from './MenuAbout';
 import { MenuProjects } from './MenuProjects';
-import './NavBar.scss'
 import Dropdown from './Dropdown';
+import './NavBar.scss'
+import './Button.scss';
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -53,8 +53,13 @@ const NavBar = () => {
               </Link>
           </li>
         </ul>
-        {user.user && <Button buttonStyle="btn--outline">LOGOUT</Button>}
-        {!user.user &&  <Button buttonStyle="btn--outline">LOGIN</Button>}
+
+        <Link to={`/login`}>
+          <button type="button" className="btn btn--outline btn--medium btn-mobile">
+            {user.user && <span>LOGOUT</span> }
+            {!user.user && <span>LOGIN</span> }
+          </button>
+        </Link>
 
       </div>
     </nav>
