@@ -8,6 +8,8 @@ logs
 
 # testing
 coverage
+__snapshots__
+__mocks__
 
 config.json
 node_modules

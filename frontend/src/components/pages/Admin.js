@@ -7,7 +7,7 @@ import { selectUser } from '../users/userSlice';
 const Admin = () => {
   const user = useSelector(selectUser);
   
-  if(user.user && user.user.role === "Admin" ) {
+  if(user && user.role === "Admin" ) {
     return (
       <div className="content admin">
         <Link to={'/registration'} >
