@@ -1,5 +1,6 @@
 import React from 'react';
 import Partners from './../Partners';
+import './pages-img.scss';
 
 const About = () => {
   return (
@@ -18,16 +19,14 @@ const About = () => {
           a live history of GUI-based mobile & desktop operating systems, which looks as follows:
         </p>
 
-        
-        <img alt="Xerox Alto" src="../../../public/images/xerox_alto.png" width="50%" />
+        <div className="pages-img xeros"></div>
 
         <p>
           Pages are showing some description and frames with virtualized operating systems, embedded
           into text as if they where ordinary screenshots.
         </p>
 
-        
-        <img alt="timeline with navigation" src="../../../public/images/timeline_nav" width="30%" />
+        <div className="pages-img navigation"></div>
 
         <p>
           User can flip through timeline and interact with virtualized systems by mouse.

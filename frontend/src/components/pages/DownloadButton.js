@@ -1,6 +1,6 @@
 import React from 'react';
 
-const apiUrl = 'http://localhost:4000/downloads/';
+const apiUrl = 'http://localhost:8080/downloads/';
 
 const download = project => {
   window.open(apiUrl + project);

@@ -29,7 +29,7 @@ const Gstreamer = () => {
           The experimental implementation was built a plugin of the GStreamer multimedia framework:
         </p>
 
-        <img alt="GStreamer architecture" src="../../../public/images/gstreamer_architecture" />
+        <div className="pages-img gstreamer"></div>
 
         <p>
           The developed plugin performs the following functions:

@@ -5,10 +5,11 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cornflourblue/node-role-based-authorization-api.git"
+        "url": "git+https://github.com/Soyko-Y/Ostimeline.git"
     },
     "scripts": {
-        "start": "nodemon ./server.js"
+        "start": "nodemon ./server.js",
+        "build": "NODE_ENV=production node ./server.js"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

@@ -49,7 +49,7 @@ const LoginUserForm = () => {
   return (
     <div className="user">
       <div className="user-content-left">
-        <img src="public/images/login.svg" alt="spaceship" className="user-img"/>
+        <div className="user-img user-login"></div>
       </div>
 
       <div className="user-content-right">
