@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import { client } from '../api/client';
+import regeneratorRuntime from "regenerator-runtime";
 
 const apiUrl = 'http://localhost:4000';
 

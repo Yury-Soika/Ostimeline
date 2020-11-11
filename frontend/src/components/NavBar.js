@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { MenuAbout } from './MenuAbout';
 import { MenuProjects } from './MenuProjects';
 import Dropdown from './Dropdown';
+import NavItem from './NavItem';
 import './NavBar.scss'
 import './Button.scss';
 
@@ -20,7 +21,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          ostimeline {user.user && <span>, {user.user.role}</span>}
+          ostimeline {user && <span>, {user.role}</span>}
         </Link>
 
         <div className="menu-icon" onClick={handleClick}>
@@ -42,63 +43,28 @@ const NavBar = () => {
             <Dropdown menuItem={MenuProjects} />
           </NavItem>
 
-          {user.user 
-            && user.user.role === "Admin" 
+          {user 
+            && user.role === "Admin" 
             && <NavItem name="Admin" link="/admin" closeMobileMenu={closeMobileMenu}/>}
 
           <li className="navbar-item">
               <Link to="/login" className="navbar-links-mobile" onClick={closeMobileMenu}>
-                {user.user && <span>Logout</span>}
-                {!user.user && <span>Login</span>}
+                {user && <span>Logout</span>}
+                {!user && <span>Login</span>}
               </Link>
           </li>
         </ul>
 
         <Link to={`/login`}>
           <button type="button" className="btn btn--outline btn--medium btn-mobile">
-            {user.user && <span>LOGOUT</span> }
-            {!user.user && <span>LOGIN</span> }
+            {user && <span>LOGOUT</span> }
+            {!user && <span>LOGIN</span> }
           </button>
         </Link>
 
       </div>
     </nav>
   );
-}
-
-const NavItem = (props) => {
-  const node = useRef();
-  const [open, setOpen] = useState(false);
-
-  const handleClickOutside = e => {
-    if (node.current.contains(e.target)) {
-      return;
-    }
-    setOpen(false);
-  };
-
-  useEffect(() => {
-
-    if (open) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [open]);
-
-  return (
-    <li ref={node} className="navbar-item" onClick={() => setOpen(!open)}>
-      <Link to={props.link} className="navbar-links" onClick={props.closeMobileMenu}>
-        {props.name} {props.iconClass && <i className={props.iconClass}/>}
-      </Link>
-
-      {open && props.children}
-    </li>
-  )
 }
 
 export default NavBar;

@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { selectUser } from '../users/userSlice';
 import {
-  selectAllPosts,
   fetchPosts,
   selectPostIds,
   selectPostById,
@@ -37,7 +36,7 @@ let PostExcerpt = ({ postId }) => {
           View post
         </button>
       </Link>
-      {user.user && <button type="button" className="btn btn--primary btn--medium btn--delete" onClick={onDeletePostClicked}>
+      {user && <button type="button" className="btn btn--primary btn--medium btn--delete" onClick={onDeletePostClicked}>
         Delete Post
       </button>}
     </section>
@@ -49,7 +48,6 @@ PostExcerpt = React.memo(PostExcerpt);
 export const PostsList = () => {
   const dispatch = useDispatch();
   const orderedPostIds = useSelector(selectPostIds);
-  const posts = useSelector(selectAllPosts);
   const postStatus = useSelector(state => state.posts.status)
 
   useEffect(() => {

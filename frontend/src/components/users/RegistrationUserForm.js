@@ -49,7 +49,7 @@ const RegistrationUserForm = () => {
     }
   };
 
-  if(user.user && user.user.role === "Admin" ) {
+  if(user && user.role === "Admin" ) {
     return (
       <div className="content" style={{alignItems: "center"}}>
         <main>

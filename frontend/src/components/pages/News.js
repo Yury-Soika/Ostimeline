@@ -14,7 +14,7 @@ const News = () => {
     <div className="content">
       <main>
         <h1>News</h1>
-        {user.user && <AddPostForm /> }
+        {user && <AddPostForm /> }
         <PostsList/>
       </main>
 
