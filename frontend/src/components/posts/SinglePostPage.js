@@ -47,11 +47,11 @@ export const SinglePostPage = ({ match }) => {
           <h2>{post.title}</h2>
           <p className="post-content">{post.content}</p>
           <Link to={`/editPost/${post.id}`} className="button">
-            {user.user && <button type="button" className="btn btn--primary btn--medium btn--edit">
+            {user && <button type="button" className="btn btn--primary btn--medium btn--edit">
               Edit post
             </button>}
           </Link>
-          {user.user && <button type="button" className="btn btn--primary btn--medium btn--delete" onClick={onDeletePostClicked}>
+          {user && <button type="button" className="btn btn--primary btn--medium btn--delete" onClick={onDeletePostClicked}>
             Delete Post
           </button>}
         </article>

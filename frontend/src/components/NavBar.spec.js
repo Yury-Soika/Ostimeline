@@ -17,7 +17,7 @@ describe('should render NavBar component', () => {
   });
 
   it("should render NavBar component for Admin", () => {
-    const uset = selectUser.mockReturnValue({role: 'Admin'});
+    const user = selectUser.mockReturnValue({role: 'Admin'});
     const component = setUp();
     expect(component).toMatchSnapshot();
   });
