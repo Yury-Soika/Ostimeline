@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import DownloadButton from './DownloadButton';
 
-const apiUrl = 'http://localhost:4000/downloads/';
+const apiUrl = 'http://localhost:8080/downloads/';
 window.open = jest.fn();
 
 const download = project => {

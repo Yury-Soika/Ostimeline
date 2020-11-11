@@ -55,7 +55,7 @@ const EditUserForm = ({ match }) => {
       <main>
         <div className="user">
           <div className="user-content-left">
-            <img src="../../public/images/editUser.svg" alt="cosmonaut" className="user-img"/>
+            <div className="user-img user-edit"></div>
           </div>
           <div className="user-content-right">
             <form className="user-container" onSubmit={handleSubmit}>

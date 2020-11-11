@@ -9,7 +9,7 @@ const Architecture = () => {
 
         <p>Architecture of the ostimeline project can be seen on the following picture:</p>
 
-        <img alt="Architecture" src="../../../public/images/architecture" width="50%" />
+        <div className="pages-img architecture"></div>
 
         <p>
           As you can see, it is highly based on the set of an open source projects:

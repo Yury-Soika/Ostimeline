@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/too
 import { client } from '../api/client';
 import regeneratorRuntime from "regenerator-runtime";
 
-const apiUrl = 'http://localhost:4000';
+const apiUrl = 'http://localhost:8080';
 
 const postsAdapter = createEntityAdapter({
   sortComparer: (a, b) => b.createdDate.localeCompare(a.createdDate)

@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashLink, NavHashLink } from 'react-router-hash-link';
 import Partners from './../Partners';
+import './pages-img.scss';
 
 const Wctablet = () => {
   return (
@@ -9,7 +10,7 @@ const Wctablet = () => {
         <section id="win95">
           <h3>
             QEMU and mouse integration in Windows 95 and Windows 95 OSR2 <HashLink smooth to={`${location.pathname}#win95`}>
-              <i class="fas fa-link"></i>
+              <i className="fas fa-link"></i>
             </HashLink>
           </h3>
           
@@ -48,15 +49,14 @@ const Wctablet = () => {
               So use your keyboard (Tab, arrow keys and Enter) for navigaton. Open the needed folder in a file manager,
               run Setup.exe and proceed with the installation as follows:
 
-              <img alt="qemuCdrom" src="../../../public/images/wctabletQemuCdrom1.png" width="700" />
-              
-              <img alt="wacomSetup" src="../../../public/images/wctabletWacomSetup1.png" width="700" />
+              <div className="pages-img qemuCdrom1"></div>
+              <div className="pages-img wacomSetup1"></div>
 
               <p>Now select <b>“Tablet Only”</b> (you may just press the <b>“O”</b> key to make it selected):</p>
 
-              <img alt="wacomSetupTablet" src="../../../public/images/wctabletWacomSetupTablet.png" width="700" />
+              <div className="pages-img wacomSetupTablet"></div>
               
-              <img alt="wacomSetupSuccessful" src="../../../public/images/wctabletWacomSetupSuccessful1.png" width="700" />
+              <div className="pages-img wacomSetupSuccessful1"></div>
             </li>
 
             <li>
@@ -64,11 +64,14 @@ const Wctablet = () => {
               When the installation is finished, you should close the installer and run it once again
               (otherwise driver may not work after reboot): 
 
-              <img alt="qemuCdrom" src="../../../public/images/wctabletQemuCdrom2.png" width="700" />
+              <div className="pages-img qemuCdrom2"></div>
               
-              <img alt="wacomSetup" src="../../../public/images/wctabletWacomSetup2.png" width="700" />
               
-              <img alt="wacomSetupSuccessful" src="../../../public/images/wctabletWacomSetupSuccessful2.png" width="700" />
+              <div className="pages-img wacomSetup2"></div>
+            
+              
+              <div className="pages-img wacomSetupSuccessful2"></div>
+              
 
               <p>Now when you press “OK”, the Windows will restart and the driver will work. </p>
             </li>
@@ -83,7 +86,7 @@ const Wctablet = () => {
         <section id="win3x">
           <h3>
             QEMU and mouse integration in Windows 3.x <HashLink smooth to={`${location.pathname}#win3x`}>
-            <i class="fas fa-link"></i>
+            <i className="fas fa-link"></i>
           </HashLink>
           </h3>
 
@@ -99,9 +102,7 @@ const Wctablet = () => {
           <ol>
             <li>
               You will need to install a driver for the Wacom PenPartner serial tabled. You can download
-              the driver installation CD
-              <a
-                href="https://ia800107.us.archive.org/16/items/Wacom_Pen_Partner_Version_2.50_WACOM_1997/Wacom%20Pen%20Partner%20%28Version%202.50%29%28WACOM%29%281997%29.iso">here</a>
+              the driver installation CD <a href="https://ia800107.us.archive.org/16/items/Wacom_Pen_Partner_Version_2.50_WACOM_1997/Wacom%20Pen%20Partner%20%28Version%202.50%29%28WACOM%29%281997%29.iso">here</a>
             </li>
 
             <li>
@@ -136,7 +137,7 @@ const Wctablet = () => {
                   <p><code>sudo fdisk /dev/nbd0 -l</code></p>
                 </li>
 
-                <img alt="Terminal" src="../../../public/images/wctabletTerminal.png" width="700" />
+                <div className="pages-img wctabletTerminal"></div>
 
                 <li>
                   mount the needed partition to your host filesystem
@@ -178,7 +179,7 @@ const Wctablet = () => {
                 <li>
                   Press Ctrl + Alt + 2, to go into the monitor:
 
-                  <img alt="wctablet Terminal QEMU" src="../../../public/images/wctabletTerminalQemu.png" />
+                  <div className="pages-img wctabletTerminalQemu"></div>
                 </li>
 
                 <li>
@@ -196,14 +197,14 @@ const Wctablet = () => {
             <li>
               When Windows have been booted, open the needed folder in a file manager:
 
-              <img alt="QEMU File Manager" src="../../../public/images/qemuFileManager.png" />
+              <div className="pages-img qemuFileManager"></div>
             </li>
 
             <li>
               Run <code>setup.exe</code> and follow the instructions:
 
-              <img alt="QEMU Wacom Setup 1" src="../../../public/images/qemuWacomSetup1.png" />
-              <img alt="QEMU Wacom Setup 2" src="../../../public/images/qemuWacomSetup2.png" />
+              <div className="pages-img qemuWacomSetup1"></div>
+              <div className="pages-img qemuWacomSetup2"></div>
             </li>
 
             <li>
@@ -219,7 +220,7 @@ const Wctablet = () => {
 
         <section id="wctablet">
           <h3>Legacy OS mouse integration <HashLink smooth to={`${location.pathname}#wctablet`}>
-              <i class="fas fa-link"></i>
+              <i className="fas fa-link"></i>
             </HashLink>
           </h3>
 
@@ -247,7 +248,7 @@ const Wctablet = () => {
             to show user two cursors moving with different speed:
           </p>
 
-          <img alt="OS mouse integration" src="../../../public/images/os_mouse" />
+          <div className="pages-img osMouse"></div>
 
           <h3>Solution</h3>
 

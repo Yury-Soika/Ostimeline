@@ -55,7 +55,7 @@ const RegistrationUserForm = () => {
         <main>
           <div className="user">
             <div className="user-content-left">
-              <img src="public/images/registration.svg" alt="spaceship" className="user-img"/>
+              <div className="user-img user-registration"></div>
             </div>
             <div className="user-content-right">
               <form className="user-container" onSubmit={handleSubmit}>

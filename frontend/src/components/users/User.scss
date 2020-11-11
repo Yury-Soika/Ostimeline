@@ -26,12 +26,19 @@
   }
 
   &-img {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100%;
+  }
+
+  &-registration {
+    background: url('./../../../public/images/registration.svg') no-repeat 50%/contain;
+  }
+
+  &-login {
+    background: url('./../../../public/images/login.svg') no-repeat 50%/contain;
+  }
+
+  &-edit {
+    background: url('./../../../public/images/editUser.svg') no-repeat 50%/contain;
   }
 
   &-success {
