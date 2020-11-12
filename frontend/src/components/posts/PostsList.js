@@ -30,7 +30,7 @@ let PostExcerpt = ({ postId }) => {
   return (
     <section className="post-excerpt" key={post.id}>
       <h3>{post.title}</h3>
-      <p>{post.content}</p>
+      <p className="post-content">{post.content}</p>
       <Link to={`/posts/${post.id}`}>
         <button type="button" className="btn btn--primary btn--medium btn--view">
           View post

@@ -1,11 +1,11 @@
 {
-    "name": "node-role-based-authorization-api",
+    "name": "ostimeline",
     "version": "1.0.0",
-    "description": "Node.js Role Based Authorization API",
+    "description": "ostimeline",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cornflourblue/node-role-based-authorization-api.git"
+        "url": "https://github.com/Soyko-Y/Ostimeline.git"
     },
     "scripts": {
         "start": "nodemon ./server.js"

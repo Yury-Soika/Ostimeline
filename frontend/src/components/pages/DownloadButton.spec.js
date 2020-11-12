@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import DownloadButton from './DownloadButton';
+import { apiUrl } from './../config';
 
-const apiUrl = 'http://localhost:8080/downloads/';
+const downloadsRoute = '/downloads/';
 window.open = jest.fn();
 
 const download = project => {
-  window.open(apiUrl + project);
+  window.open(apiUrl + downloadsRoute + project);
 }
 
 const props = {

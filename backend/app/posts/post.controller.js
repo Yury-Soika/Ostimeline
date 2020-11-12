@@ -5,10 +5,10 @@ const authorize = require('../_middleware/authorize');
 const Role = require('../_helpers/role');
 
 // routes
-router.post('/', authorize(Role.Admin || Role.User), create);
+router.post('/', authorize(), create);
 router.get('/', getAll);
-router.put('/:id', authorize(Role.Admin || Role.User), update);
-router.delete('/:id', authorize(Role.Admin || Role.User), _delete);
+router.put('/:id', authorize(), update);
+router.delete('/:id', authorize(), _delete);
 
 module.exports = router;
 

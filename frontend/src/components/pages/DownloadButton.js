@@ -1,9 +1,9 @@
 import React from 'react';
+import { apiUrl } from './../config';
 
-const apiUrl = 'http://localhost:8080/downloads/';
-
+const downloadsRoute = '/downloads/';
 const download = project => {
-  window.open(apiUrl + project);
+  window.open(apiUrl + downloadsRoute + project);
 }
 
 const DownloadButton = (props) => {
