@@ -10,6 +10,8 @@ services:
     build: ./backend
     ports:
       - '8080:8080'
+    volumes:
+      - /home/dev/Documents/MagDocs/:/home/dev/Documents/MagDocs/
     depends_on:
       - mongo
   mongo:

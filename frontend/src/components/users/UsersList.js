@@ -49,7 +49,6 @@ UserExcerpt = React.memo(UserExcerpt);
 export const UsersList = () => {
   const dispatch = useDispatch();
   const orderedUserIds = useSelector(selectUserIds);
-  const users = useSelector(selectAllUsers);
   const userStatus = useSelector(state => state.user.status)
 
   useEffect(() => {
