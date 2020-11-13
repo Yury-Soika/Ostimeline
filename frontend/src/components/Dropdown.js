@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Dropdown.scss';
-import { Link } from 'react-router-dom';
 
 function Dropdown(props) {
   const [click, setClick] = useState(false);
@@ -14,13 +13,13 @@ function Dropdown(props) {
       {props.menuItem && props.menuItem.map((item, index) => {
         return (
           <li key={index}>
-            <Link
+            <a
               className={item.cName}
-              to={item.path}
+              href={item.path}
               onClick={() => setClick(false)}
             >
               {item.title}
-            </Link>
+            </a>
           </li>
         );
       })}

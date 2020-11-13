@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashLink, NavHashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
 import Partners from './../Partners';
 import './pages-img.scss';
 
