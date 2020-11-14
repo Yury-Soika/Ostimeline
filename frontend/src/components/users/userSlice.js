@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import regeneratorRuntime from "regenerator-runtime";
 import { client } from '../api/client';
-
-const apiUrl = 'http://localhost:8080';
+import { apiUrl } from './../config';
 
 const usersAdapter = createEntityAdapter();
 
