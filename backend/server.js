@@ -14,7 +14,7 @@ app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: 
 // api routes
 app.use('/users', require('./app/users/user.controller'));
 app.use('/posts', require('./app/posts/post.controller'));
-app.use('/downloads', require('./app/downloads/downloads.controller'));
+app.use('/downloads', require('./app/downloads/download.controller'));
 app.use('/page', require('./app/page/page.controller'));
 
 // global error handler

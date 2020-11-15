@@ -35,7 +35,7 @@ describe('should render Dropdown component', () => {
     });
 
     it("should click Link", () => {
-      const link = component.find("Link");
+      const link = component.find("a");
       link.simulate("click");
       expect(component).toMatchSnapshot();
     });
