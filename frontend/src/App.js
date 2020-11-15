@@ -9,7 +9,7 @@ import News from './components/pages/News';
 import About from './components/pages/About';
 import Architecture from './components/pages/Architecture';
 import Installation from './components/pages/Installation';
-import Downloads from './components/pages/Downloads';
+import Downloads from './components/downloads/Downloads';
 import Wctablet from './components/pages/Wctablet';
 import Gstreamer from './components/pages/Gstreamer';
 import Admin from './components/pages/Admin';

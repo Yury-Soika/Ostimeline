@@ -19,5 +19,6 @@ database.on('error', console.error.bind(console, 'MongoDB connection error:'));
 module.exports = {
   User: require('../users/user.model'),
   Post: require('../posts/post.model'),
-  Page: require('../page/page.model')
+  Page: require('../page/page.model'),
+  Download: require('../downloads/download.model')
 };
