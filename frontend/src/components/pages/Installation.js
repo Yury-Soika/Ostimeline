@@ -5,11 +5,13 @@ import { Page } from './Page';
 const Installation = () => {
   return (
     <div className="content">
-      <section>
-        <Page pageName="installation" />
-      </section>
+      <main>
+        <section>
+          <Page pageName="installation" />
+        </section>
 
-      <Partners />
+        <Partners />
+      </main>
     </div>
   );
 }

@@ -20,7 +20,7 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+        <Link to="/" className="navbar-title" onClick={closeMobileMenu}>
           ostimeline {user && <span>, {user.role}</span>}
         </Link>
 
@@ -30,24 +30,33 @@ const NavBar = () => {
 
         <ul className={click ? "navbar-menu active" : "navbar-menu"}>
 
-          <NavItem name="News" link="/" closeMobileMenu={closeMobileMenu}/>
+          <NavItem className="navbar-item" name="News" link="/" closeMobileMenu={closeMobileMenu}/>
 
-          <NavItem name="About" link="#" iconClass="fas fa-caret-down" closeMobileMenu={closeMobileMenu}>
+          <NavItem className="navbar-item desktop" name="About" link="#" iconClass="fas fa-caret-down" closeMobileMenu={closeMobileMenu}>
             <Dropdown menuItem={MenuAbout} />
-            
           </NavItem>
-
-          <NavItem name="Downloads" link="/downloads" closeMobileMenu={closeMobileMenu}/>
           
-          <NavItem name="Projects" link="#" iconClass="fas fa-caret-down" closeMobileMenu={closeMobileMenu}>
+          <NavItem className="navbar-item mobile" name="About ostimeline" link="/about" closeMobileMenu={closeMobileMenu}/>
+          
+          <NavItem className="navbar-item mobile" name="Architecture" link="/architecture" closeMobileMenu={closeMobileMenu}/>
+          
+          <NavItem className="navbar-item mobile" name="Installation" link="/installation" closeMobileMenu={closeMobileMenu}/>
+
+          <NavItem className="navbar-item" name="Downloads" link="/downloads" closeMobileMenu={closeMobileMenu}/>
+          
+          <NavItem className="navbar-item desktop" name="Projects" link="#" iconClass="fas fa-caret-down" closeMobileMenu={closeMobileMenu}>
             <Dropdown menuItem={MenuProjects} />
           </NavItem>
 
+          <NavItem className="navbar-item mobile" name="Wctablet" link="/wctablet" closeMobileMenu={closeMobileMenu}/>
+
+          <NavItem className="navbar-item mobile" name="Gstreamer" link="/gstreamer" closeMobileMenu={closeMobileMenu}/>
+
           {user 
             && user.role === "Admin" 
-            && <NavItem name="Admin" link="/admin" closeMobileMenu={closeMobileMenu}/>}
+            && <NavItem className="navbar-item" name="Admin" link="/admin" closeMobileMenu={closeMobileMenu}/>}
 
-          <li className="navbar-item">
+          <li className="navbar-item mobile">
               <Link to="/login" className="navbar-links-mobile" onClick={closeMobileMenu}>
                 {user && <span>Logout</span>}
                 {!user && <span>Login</span>}

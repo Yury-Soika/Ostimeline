@@ -82,3 +82,11 @@
     color: #fff;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .btn {
+    &-mobile {
+      display: none;
+    }
+  }
+}

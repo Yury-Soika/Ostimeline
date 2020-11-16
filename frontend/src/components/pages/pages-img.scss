@@ -1,5 +1,5 @@
 .pages-img {
-  height: 35rem;
+  padding-top: 50%;
   margin: 2rem auto;
 }
 
@@ -9,7 +9,7 @@
 
 .navigation {
 	background: url('./../../../public/images/timeline_nav.jpeg') no-repeat 50%/contain;
-  height: 25rem;
+  padding-top: 30%;
 }
 
 .architecture {
@@ -50,7 +50,7 @@
 
 .wctabletTerminal {
   background: url('./../../../public/images/wctabletTerminal.png') no-repeat 50%/contain;
-  height: 13rem;
+  padding-top: 20%;
 }
 
 .wctabletTerminalQemu {
@@ -71,5 +71,5 @@
 
 .osMouse {
   background: url('./../../../public/images/os_mouse.jpeg') no-repeat 50%/contain;
-  height: 20rem;
+  padding-top: 40%;
 }

@@ -5,11 +5,13 @@ import { Page } from './Page';
 const Architecture = () => {
   return (
     <div className="content">
-      <section>
-        <Page pageName="architecture" />
-      </section>
+      <main>
+        <section>
+          <Page pageName="architecture" />
+        </section>
 
-      <Partners />
+        <Partners />
+      </main>
     </div>
   );
 }

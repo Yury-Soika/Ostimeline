@@ -10,9 +10,9 @@ function Dropdown(props) {
       className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
     >
 
-      {props.menuItem && props.menuItem.map((item, index) => {
+      {props.menuItem && props.menuItem.map(item => {
         return (
-          <li key={index}>
+          <li key={item.title}>
             <a
               className={item.cName}
               href={item.path}
