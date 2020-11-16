@@ -146,10 +146,10 @@
 }
 
 @media screen and (max-width: 960px) {
-  .form {
+  .user {
     margin: 0;
     grid-template-columns: 1fr;
-    min-height: calc(100vh - 11.5rem);
+    height: calc(100vh - 11.5rem);
     box-shadow: none;
 
     &-content {

@@ -16,9 +16,9 @@
 
   section {
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    padding: 2rem;
-    border-radius: 2rem;
-    margin: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
   }
 
   h1 {
@@ -55,6 +55,10 @@
     line-height: 1;
   }
 
+  textarea {
+    height: 40vh;
+  }
+
   input:hover,
   textarea:hover {
     border: 1px solid #c5c5c5;
@@ -84,4 +88,16 @@
 .content.admin {
   flex-flow: column;
   justify-content: stretch;
+}
+
+@media screen and (max-width: 960px) {
+  .content {
+    section {
+      margin: 0.7rem;
+      padding: 0.7rem;
+    }
+    .sidebar {
+      display: none;
+    }
+  }
 }

@@ -5,11 +5,13 @@ import { Page } from './Page';
 const Gstreamer = () => {
   return (
     <div className="content">
-      <section>
-        <Page pageName="gstreamer" />
-      </section>
-      
-      <Partners />
+      <main>
+        <section>
+          <Page pageName="gstreamer" />
+        </section>
+        
+        <Partners />
+      </main>
     </div>
   )
 }

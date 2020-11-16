@@ -6,9 +6,11 @@ import { Page } from './Page';
 const About = () => {
   return (
     <div className="content">
-      <section>
-        <Page pageName="about" />
-      </section>
+      <main>
+        <section>
+          <Page pageName="about" />
+        </section>
+      </main>
       
       <Partners/>
     </div>

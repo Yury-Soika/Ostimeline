@@ -17,7 +17,7 @@ const NavItem = (props) => {
   }, [open]);
 
   return (
-    <li ref={node} className="navbar-item" onClick={() => setOpen(!open)}>
+    <li ref={node} className={props.className} onClick={() => setOpen(!open)}>
       <a href={props.link} className="navbar-links" onClick={props.closeMobileMenu}>
         {props.name} {props.iconClass && <i className={props.iconClass}/>}
       </a>
