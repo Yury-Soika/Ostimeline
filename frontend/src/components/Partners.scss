@@ -1,14 +1,12 @@
 .sidebar {
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  padding: 1rem;
-  border-radius: 1rem;
-  margin: 1rem;
-
+  text-align: center;
   .image {
-    background: url('./../../public/images/bstu_logo.png') no-repeat;
-    height: 303px;
-    width: 303px;
+    background: url('./../../public/images/bstu_logo.png') no-repeat 50%/contain;
     display: block;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    padding: 9rem;
+    border-radius: 1rem;
+    margin: 1rem;
   }
 }
 

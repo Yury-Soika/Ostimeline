@@ -9,9 +9,9 @@ const Gstreamer = () => {
         <section>
           <Page pageName="gstreamer" />
         </section>
-        
-        <Partners />
       </main>
+        
+      <Partners />
     </div>
   )
 }
