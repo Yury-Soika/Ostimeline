@@ -9,11 +9,11 @@ const Installation = () => {
         <section>
           <Page pageName="installation" />
         </section>
-
-        <Partners />
       </main>
+
+      <Partners />
     </div>
-  );
+  )
 }
 
 export default Installation;

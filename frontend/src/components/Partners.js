@@ -4,7 +4,7 @@ import './Partners.scss';
 const Partners = () => {
   return (
     <div className="sidebar">
-      <h3>Partners</h3>
+      <h1>Partners</h1>
       <a href="https://www.bstu.by/" className="image"></a>
     </div>
   )

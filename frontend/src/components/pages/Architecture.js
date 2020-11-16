@@ -9,9 +9,9 @@ const Architecture = () => {
         <section>
           <Page pageName="architecture" />
         </section>
-
-        <Partners />
       </main>
+
+      <Partners />
     </div>
   );
 }

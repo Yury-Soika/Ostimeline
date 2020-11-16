@@ -65,7 +65,7 @@ const NavBar = () => {
         </ul>
 
         <Link to={`/login`}>
-          <button type="button" className="btn btn--outline btn--medium btn-mobile">
+          <button type="button" className="btn btn--outline btn--medium btn--login">
             {user && <span>LOGOUT</span> }
             {!user && <span>LOGIN</span> }
           </button>
