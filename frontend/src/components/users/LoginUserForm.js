@@ -47,7 +47,7 @@ const LoginUserForm = () => {
   }, [userStatus]);
 
   return (
-    <div className="user">
+    <div className="user login">
       <div className="user-content-left">
         <div className="user-img user-login"></div>
       </div>

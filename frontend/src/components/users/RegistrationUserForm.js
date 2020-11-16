@@ -52,137 +52,135 @@ const RegistrationUserForm = () => {
   if(user && user.role === "Admin" ) {
     return (
       <div className="content" style={{alignItems: "center"}}>
-        <main>
-          <div className="user">
-            <div className="user-content-left">
-              <div className="user-img user-registration"></div>
-            </div>
-            <div className="user-content-right">
-              <form className="user-container" onSubmit={handleSubmit}>
-                <h1>Get started with us today!</h1>
-                <div className="user-inputs">
-                  <label 
-                    htmlFor="username"
-                    className="user-label"
-                  >
-                    Username
-                  </label>
-                  <input
-                    id="username"
-                    type="text"
-                    name="username"
-                    className="user-input"
-                    placeholder="Enter your username"
-                    value={values.username}
-                    onChange={handleChange}
-                  />
-                  {submitted && !values.username &&<p >Username is required</p>}
-                </div>
-
-                <div className="user-inputs">
-                    <label 
-                      htmlFor="firstName"
-                      className="user-label"
-                    >
-                      First name
-                    </label>
-                    <input
-                      id="firstName"
-                      type="text"
-                      name="firstName"
-                      className="user-input"
-                      placeholder="Enter your first name"
-                      value={values.firstName}
-                      onChange={handleChange}
-                    />
-                    {submitted && !values.firstName &&<p >First name is required</p>}
-                  </div>
-
-                  <div className="user-inputs">
-                    <label 
-                      htmlFor="lastName"
-                      className="user-label"
-                    >
-                      Last name
-                    </label>
-                    <input
-                      id="lastName"
-                      type="text"
-                      name="lastName"
-                      className="user-input"
-                      placeholder="Enter your last name"
-                      value={values.lastName}
-                      onChange={handleChange}
-                    />
-                    {submitted && !values.lastName &&<p >Last name is required</p>}
-                  </div>
-                
-                <div className="user-selects">
-                  <label 
-                    htmlFor="role"
-                    className="user-label"
-                  >
-                    Role
-                  </label>
-                  <select
-                    id="role"
-                    name="role"
-                    className="user-select"
-                    value={values.role}
-                    onChange={handleChange}>
-                    <option value="User">User</option>
-                    <option value="Admin">Admin</option>
-                  </select>
-                </div>
-
-                <div className="user-inputs">
-                  <label 
-                    htmlFor="password"
-                    className="user-label"
-                  >
-                    Password
-                  </label>
-                  <input
-                    id="password" 
-                    type="password"
-                    name="password"
-                    className="user-input"
-                    placeholder="Enter your Password"
-                    value={values.password}
-                    onChange={handleChange}
-                  />
-                  {submitted && !values.password &&<p >Password is required</p>}
-                </div>
-
-                <div className="user-inputs">
-                  <label 
-                    htmlFor="password2"
-                    className="user-label"
-                  >
-                    Confirm password
-                  </label>
-                  <input
-                    id="password2" 
-                    type="password"
-                    name="password2"
-                    className="user-input"
-                    placeholder="Enter your password"
-                    value={values.password2}
-                    onChange={handleChange}
-                  />
-                  {submitted && !values.password2 &&<p >Password is required</p>}
-                </div>
-                {error && <p>{error}</p>}
-                <button 
-                  className="user-input-btn"
-                  type="submit"
-                >
-                  SignUp
-                </button>
-              </form>
-            </div>
+        <div className="user">
+          <div className="user-content-left">
+            <div className="user-img user-registration"></div>
           </div>
-        </main>
+          <div className="user-content-right">
+            <form className="user-container" onSubmit={handleSubmit}>
+              <h1>Get started with us today!</h1>
+              <div className="user-inputs">
+                <label 
+                  htmlFor="username"
+                  className="user-label"
+                >
+                  Username
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  name="username"
+                  className="user-input"
+                  placeholder="Enter your username"
+                  value={values.username}
+                  onChange={handleChange}
+                />
+                {submitted && !values.username &&<p >Username is required</p>}
+              </div>
+
+              <div className="user-inputs">
+                  <label 
+                    htmlFor="firstName"
+                    className="user-label"
+                  >
+                    First name
+                  </label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    name="firstName"
+                    className="user-input"
+                    placeholder="Enter your first name"
+                    value={values.firstName}
+                    onChange={handleChange}
+                  />
+                  {submitted && !values.firstName &&<p >First name is required</p>}
+                </div>
+
+                <div className="user-inputs">
+                  <label 
+                    htmlFor="lastName"
+                    className="user-label"
+                  >
+                    Last name
+                  </label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    name="lastName"
+                    className="user-input"
+                    placeholder="Enter your last name"
+                    value={values.lastName}
+                    onChange={handleChange}
+                  />
+                  {submitted && !values.lastName &&<p >Last name is required</p>}
+                </div>
+              
+              <div className="user-selects">
+                <label 
+                  htmlFor="role"
+                  className="user-label"
+                >
+                  Role
+                </label>
+                <select
+                  id="role"
+                  name="role"
+                  className="user-select"
+                  value={values.role}
+                  onChange={handleChange}>
+                  <option value="User">User</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+
+              <div className="user-inputs">
+                <label 
+                  htmlFor="password"
+                  className="user-label"
+                >
+                  Password
+                </label>
+                <input
+                  id="password" 
+                  type="password"
+                  name="password"
+                  className="user-input"
+                  placeholder="Enter your Password"
+                  value={values.password}
+                  onChange={handleChange}
+                />
+                {submitted && !values.password &&<p >Password is required</p>}
+              </div>
+
+              <div className="user-inputs">
+                <label 
+                  htmlFor="password2"
+                  className="user-label"
+                >
+                  Confirm password
+                </label>
+                <input
+                  id="password2" 
+                  type="password"
+                  name="password2"
+                  className="user-input"
+                  placeholder="Enter your password"
+                  value={values.password2}
+                  onChange={handleChange}
+                />
+                {submitted && !values.password2 &&<p >Password is required</p>}
+              </div>
+              {error && <p>{error}</p>}
+              <button 
+                className="user-input-btn"
+                type="submit"
+              >
+                SignUp
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }
