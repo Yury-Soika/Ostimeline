@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { unwrapResult } from '@reduxjs/toolkit'
 import { addNewPost } from './postsSlice'
 
 export const AddPostForm = () => {

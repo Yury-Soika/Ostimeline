@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { unwrapResult } from '@reduxjs/toolkit';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { selectUser } from '../users/userSlice';
