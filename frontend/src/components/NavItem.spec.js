@@ -24,14 +24,14 @@ describe('should render NavItem component', () => {
       map[event] = callback;
     });
     const wrapper = setMount(props);
-    expect(wrapper.find('.navbar-item')).toMatchSnapshot();
-    const item = wrapper.find(".navbar-item");
+    expect(wrapper.find('a')).toMatchSnapshot();
+    const item = wrapper.find("a");
     item.simulate("click");
-    expect(wrapper.find('.navbar-item')).toMatchSnapshot();
+    expect(wrapper.find('a')).toMatchSnapshot();
     act(() => {
-      map.mousedown({ target: document.createElement('a') });
+      map.mousedown({ target: document.createElement('div') });
     });
-    expect(wrapper.find('.navbar-item')).toMatchSnapshot();
+    expect(wrapper.find('a')).toMatchSnapshot();
   });
 
   it('testing mousedown - 2', () => {
@@ -40,13 +40,13 @@ describe('should render NavItem component', () => {
       map[event] = callback;
     });
     const wrapper = setMount(props);
-    expect(wrapper.find('.navbar-item')).toMatchSnapshot();
-    const item = wrapper.find(".navbar-item");
+    expect(wrapper.find('a')).toMatchSnapshot();
+    const item = wrapper.find("a");
     item.simulate("click");
-    expect(wrapper.find('.navbar-item')).toMatchSnapshot();
+    expect(wrapper.find('a')).toMatchSnapshot();
     act(() => {
       map.mousedown({ target: wrapper.getDOMNode() });
     });
-    expect(wrapper.find('.navbar-item')).toMatchSnapshot();
+    expect(wrapper.find('a')).toMatchSnapshot();
   });
 });

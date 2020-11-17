@@ -25,7 +25,7 @@ describe('should render NavBar component', () => {
   describe('click', () => {
     it("should click navbar-logo", () => {
       const component = setUp();
-      const logo = component.find(".navbar-logo");
+      const logo = component.find(".navbar-title");
       logo.simulate("click");
       expect(component).toMatchSnapshot();
     });
