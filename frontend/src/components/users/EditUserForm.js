@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { unwrapResult } from '@reduxjs/toolkit';
 import { useHistory } from 'react-router-dom';
 import { updateUser, selectUserById } from './userSlice';
+import { validateName, validatePassword } from './validateInfo';
 import './User.scss';
 
 const EditUserForm = ({ match }) => {
@@ -34,19 +34,18 @@ const EditUserForm = ({ match }) => {
     e.preventDefault();
 
     setSubmitted(true);
-    if(
-      values.username
-      && values.password
-      && values.firstName
-      && values.lastName
+    if(!validateName(values.username)
+      && !validatePassword(values.password)
+      && !validateName(values.firstName)
+      && !validateName(values.lastName)
       && (values.password === values.password2)
     ) try {
-      await dispatch(updateUser({id: userId, change: values}));
-    } catch (err) {
+        await dispatch(updateUser({id: userId, change: values}));
+      } catch (err) {
         console.error('Failed to update the user: ', err);
-    } finally {
-      history.push('/admin');
-    }
+      } finally {
+        history.push('/admin');
+      }
   };
 
   return (
@@ -74,7 +73,9 @@ const EditUserForm = ({ match }) => {
                 value={values.username}
                 onChange={handleChange}
               />
-              {submitted && !values.username &&<p >Username is required</p>}
+              {submitted 
+                  && validateName(values.username) 
+                  && <p>{validateName(values.username)} user name</p>}
             </div>
 
             <div className="user-inputs">
@@ -93,7 +94,9 @@ const EditUserForm = ({ match }) => {
                   value={values.firstName}
                   onChange={handleChange}
                 />
-                {submitted && !values.firstName &&<p >First name is required</p>}
+                {submitted 
+                  && validateName(values.firstName) 
+                  && <p>{validateName(values.firstName)} first name</p>}
               </div>
 
               <div className="user-inputs">
@@ -112,7 +115,9 @@ const EditUserForm = ({ match }) => {
                   value={values.lastName}
                   onChange={handleChange}
                 />
-                {submitted && !values.lastName &&<p >Last name is required</p>}
+                {submitted 
+                  && validateName(values.lastName) 
+                  && <p>{validateName(values.lastName)} last name</p>}
               </div>
             
             <div className="user-selects">
@@ -149,7 +154,9 @@ const EditUserForm = ({ match }) => {
                 value={values.password}
                 onChange={handleChange}
               />
-              {submitted && !values.password &&<p >Password is required</p>}
+              {submitted 
+                  && validatePassword(values.password) 
+                  && <p>{validatePassword(values.password)}</p>}
             </div>
 
             <div className="user-inputs">
@@ -168,7 +175,9 @@ const EditUserForm = ({ match }) => {
                 value={values.password2}
                 onChange={handleChange}
               />
-              {submitted && !values.password2 &&<p >Password is required</p>}
+              {submitted 
+                  && validatePassword(values.password2) 
+                  && <p>{validatePassword(values.password2)}</p>}
             </div>
             {error && <p>{error}</p>}
             <button 
