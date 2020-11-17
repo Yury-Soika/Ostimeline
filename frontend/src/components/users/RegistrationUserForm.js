@@ -176,8 +176,8 @@ const RegistrationUserForm = () => {
                 onChange={handleChange}
               />
               {submitted 
-                  && validatePassword(values.password2) 
-                  && <p>{validatePassword(values.password2)}</p>}
+                  && !(values.password === values.password2)
+                  && <p>Passwords must match</p>}
             </div>
             {error && <p>{error}</p>}
             <button 
