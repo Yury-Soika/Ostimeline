@@ -77,11 +77,16 @@
     flex-flow: row wrap;
   }
 
+  .post-excerpt .post-title,
   .post-excerpt .post-content {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .post-excerpt .post-title {
+    -webkit-line-clamp: 1;
   }
 }
 
