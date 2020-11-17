@@ -40,8 +40,7 @@ const RegistrationUserForm = () => {
       && values.lastName
       && (values.password === values.password2)
     ) try {
-      const resultAction = await dispatch(registrationUser(values));
-      unwrapResult(resultAction);
+      await dispatch(registrationUser(values));
     } catch (err) {
         console.error('Failed to registration the user: ', err);
     } finally {

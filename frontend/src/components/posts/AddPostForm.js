@@ -17,10 +17,7 @@ export const AddPostForm = () => {
   const onSavePostClicked = async () => {
     if (canSave) {
       try {
-        const resultAction = await dispatch(
-          addNewPost({ title, content })
-        );
-        unwrapResult(resultAction);
+        await dispatch(addNewPost({ title, content }));
         setTitle('');
         setContent('');
       } catch (err) {

@@ -18,12 +18,7 @@ export const fetchPage = createAsyncThunk('page/fetchPage', async pageName => {
 const pageSlice = createSlice({
   name: 'page',
   initialState,
-  reducers: {
-    reset(state) {
-      state.status = 'idle';
-      state.error = null;
-    }
-  },
+  reducers: {},
   extraReducers: {
     [fetchPage.pending]: (state, action) => {
       state.status = 'loading';
@@ -42,7 +37,6 @@ const pageSlice = createSlice({
 export default pageSlice.reducer;
 
 export const selectPage = state => state.page.entities;
-export const { reset } = pageSlice.actions;
 export const {
   selectById: selectPageById,
   selectIds: selectPageIds

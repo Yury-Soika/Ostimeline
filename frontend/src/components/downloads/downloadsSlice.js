@@ -18,12 +18,7 @@ export const fetchDownloads = createAsyncThunk('downloads/fetchDownloads', async
 const downloadSlice = createSlice({
   name: 'download',
   initialState,
-  reducers: {
-    reset(state) {
-      state.status = 'idle';
-      state.error = null;
-    }
-  },
+  reducers: {},
   extraReducers: {
     [fetchDownloads.pending]: (state, action) => {
       state.status = 'loading';

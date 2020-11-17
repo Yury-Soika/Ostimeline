@@ -81,6 +81,12 @@
     background-color: #8b00ff;
     color: #fff;
   }
+
+  &:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
 }
 
 @media screen and (max-width: 960px) {

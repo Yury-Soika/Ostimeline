@@ -15,9 +15,7 @@ let UserExcerpt = ({ userId }) => {
   const history = useHistory();
   const onDeleteUserClicked = async () => {
     try {
-      const resultAction = await dispatch(
-        deleteUser(userId)
-      );
+      await dispatch(deleteUser(userId));
     } catch (err) {
       console.error('Failed to delete the user: ', err);
     } finally {

@@ -43,11 +43,6 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    reset(state) {
-      state.status = 'idle';
-      state.error = null;
-    },
-
     logout(state) {
       localStorage.removeItem('user');
       state.user = null;
@@ -90,7 +85,6 @@ export default userSlice.reducer;
 
 export const selectUser = state => state.user.user;
 export const { logout } = userSlice.actions;
-export const { reset } = userSlice.actions;
 export const {
   selectAll: selectAllUsers,
   selectById: selectUserById,
