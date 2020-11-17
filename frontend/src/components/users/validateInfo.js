@@ -10,7 +10,7 @@ export const validateName = (name) => {
 
 export const validatePassword = (password) => {
   if (!password) {
-    return "Please password";
+    return "Please enter password";
   } else if (password.length < 4) {
     return "Password needs to be 4 characters or more";
   }
