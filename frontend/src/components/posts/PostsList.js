@@ -15,9 +15,7 @@ let PostExcerpt = ({ postId }) => {
   const history = useHistory();
   const onDeletePostClicked = async () => {
     try {
-      const resultAction = await dispatch(
-        deletePost(postId)
-      );
+      await dispatch(deletePost(postId));
     } catch (err) {
       console.error('Failed to delete the post: ', err);
     } finally {

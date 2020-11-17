@@ -16,10 +16,7 @@ export const SinglePostPage = ({ match }) => {
 
   const onDeletePostClicked = async () => {
     try {
-      const resultAction = await dispatch(
-        deletePost(postId)
-      );
-      unwrapResult(resultAction);
+      await dispatch(deletePost(postId));
     } catch (err) {
       console.error('Failed to delete the post: ', err);
     }

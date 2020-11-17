@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, login, logout, reset } from './userSlice';
+import { selectUser, login, logout } from './userSlice';
 import { useHistory } from "react-router-dom";
 import './User.scss';
 
@@ -42,7 +42,6 @@ const LoginUserForm = () => {
   useEffect(() => { 
     if(userStatus === 'succeeded') {
       history.push('/');
-      dispatch(reset(user));
     }
   }, [userStatus]);
 

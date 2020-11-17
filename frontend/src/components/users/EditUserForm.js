@@ -41,8 +41,7 @@ const EditUserForm = ({ match }) => {
       && values.lastName
       && (values.password === values.password2)
     ) try {
-      const resultAction = await dispatch(updateUser({id: userId, change: values}));
-      unwrapResult(resultAction);
+      await dispatch(updateUser({id: userId, change: values}));
     } catch (err) {
         console.error('Failed to update the user: ', err);
     } finally {

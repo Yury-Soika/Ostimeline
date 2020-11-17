@@ -23,10 +23,7 @@ export const EditPostForm = ({ match }) => {
   const onSavePostClicked = async () => {
     if (title && content) {
       try {
-        const resultAction = await dispatch(
-          updatePost({ id: postId, change: {title, content} })
-        );
-        unwrapResult(resultAction);
+        await  dispatch(updatePost({ id: postId, change: {title, content} }));
         setTitle('');
         setContent('');
       } catch (err) {

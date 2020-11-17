@@ -14,17 +14,17 @@ const initialState = postsAdapter.getInitialState({
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await client.get(`${apiUrl}/posts`);
-  return response.posts;
+  return response;
 });
 
 export const addNewPost = createAsyncThunk('posts/addNewPost', async initialPost => {
   const response = await client.post(`${apiUrl}/posts`, initialPost);
-  return response.post;
+  return response;
 });
 
 export const updatePost = createAsyncThunk('posts/updatePost', async initialPost => {
   const response = await client.put(`${apiUrl}/posts/${initialPost.id}`, initialPost.change);
-  return response.post;
+  return response;
 });
 
 export const deletePost = createAsyncThunk('posts/deletePost', async id => {
