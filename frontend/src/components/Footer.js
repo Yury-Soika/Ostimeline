@@ -12,7 +12,7 @@ const Footer = () => {
               ostimeline
             </a>
           </div>
-          <small className="website-rights">© 2020 Yury Soiko</small>
+          <small className="website-rights">© 2021 Yury Soiko</small>
           <div className="social-icons">
             <a
               className="social-icon-link vk"
