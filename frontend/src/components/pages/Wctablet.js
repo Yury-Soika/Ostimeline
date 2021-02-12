@@ -275,6 +275,115 @@ const Wctablet = () => {
             necessary drivers for the pre-USB operating systems to achieve mouse integration.
           </p>
         </section>
+
+        <section id="dosWctablet">
+          <h3>QEMU and mouse integration in DOS <HashLink smooth to={`${location.pathname}#dosWctablet`}>
+              <i className="fas fa-link"></i>
+            </HashLink>
+          </h3>
+
+          <p>
+            Currently, special wctablet serial device of QEMU needs an additional patch to work properly with DOS. 
+            The patch itself is rather small:
+          </p>
+
+          <p>
+            <code>chardev/wctablet.c | 5 ++++-</code><br/>
+            <code><pre> 1 file changed, 4 insertions(+), 1 deletion(-)</pre></code>
+          </p>
+
+          <p>
+            <code>diff --git a/chardev/wctablet.c b/chardev/wctablet.c</code><br/>
+            <code>index 95e005f5a5..0e53b194d8 100644</code><br/>
+            <code>--- a/chardev/wctablet.c</code><br/>
+            <code>+++ b/chardev/wctablet.c</code><br/>
+            <code>@@ -139,7 +139,10 @@ static void wctablet_queue_event(TabletChardev *tablet)</code><br/>
+            <code>      codes[5] = codes[5] | WC_L7(nexY);</code><br/>
+          </p>
+
+          <p>
+            <code><pre>    if (tablet-&gt;btns[INPUT_BUTTON_LEFT])  &#123;</pre></code>
+            <code><pre>-        codes[0] = 0xa0;</pre></code>
+            <code><pre>+        //codes[0] = 0xa0;</pre></code>
+            <code><pre>+        codes[0] |= 0x0c; /* 0x08 (button pressed) + pressure p0 bit */</pre></code>
+            <code><pre>+        codes[3] |= 0x0c; /* 8 (button number is 1) + pressure p1 bit */</pre></code>
+            <code><pre>+        codes[6] = 0x3f;  /* high positive pressure is applied */</pre></code>
+            <code><pre>     &#125;</pre></code>
+          </p>
+
+          <p>
+            <code><pre>     wctablet_queue_output(tablet, codes, 7);</pre></code>
+            <code>-- </code>
+          </p>
+
+          <p>
+            Getting QEMU source code, patching and building it is out of scope for this instruction. But when you have patched and recompiled QEMU, 
+            the following steps are needed to get <b>mouse integration</b> with <b>DOS</b> running in QEMU:
+          </p>
+
+          <ol>
+            <li>
+              You have to install a DOS mouse emulation driver for the Wacom PenPartner serial tablet. You can download this driver from the Internet Archive.
+            </li>
+
+            <li>
+              Now you have to unpack this zip archive and copy the WMOUSE.COM file to the guest operating system drive. It may be easier to mount your hard 
+              drive image to the host operating system and copy needed file from there. Following steps will mount your QCOW image to your host filesystem:
+
+              <ol>
+                <li>
+                  turn on NDB support:<br/>
+                  <code>sudo modprobe nbd max_part=8</code><br/><br/>
+                </li>
+
+                <li>
+                  attach your image as an NDB device: <br/>
+                  <code>sudo qemu-nbd --connect=/dev/nbd0 &lt;image.qcow&gt;</code><br/><br/>
+                </li>
+
+                <li>
+                  look at the partition table of your image to find which partition to mount:
+                  <code>sudo fdisk /dev/nbd0 -l</code>
+
+                  <div className="pages-img dosTerminal"></div>
+                </li>
+
+                <li>
+                  mount the needed partition to your host filesystem (let’s suppose you are mounting your 1st partition to /mnt/):<br/>
+                  <code>sudo mount /dev/nbd0p1 /mnt/</code>
+                </li>
+
+                <li><p>copy WMOUSE.COM file from the downloaded ZIP archive into your image. </p></li>
+
+                <li>
+                  Unmount the image and detach it from the NBD:<br/>
+                  <code>sudo umount /dev/nbd0p1</code><br/>
+                  <code>sudo qemu-nbd --disconnect /dev/nbd0</code><br/><br/>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              Run your virtual machine with two additional parameters. The first one will create a special character device with some 
+              arbitrary name you (e.g. “mywctablet1”). The second one will attach this character device to your serial (COM) port:
+              <p><code>qemu-system-i386 -m 1 -hda image.qcow -chardev wctablet,id=mywctablet1 -serial chardev:mywctablet1</code></p>
+            </li>
+
+            <li>
+              QEMU will use the new wctablet device to control your pointer, but to make DOS “see” it as mouse you need to run the driver 
+              with parameters to make it using absolute positioning mode and proper tablet dimensions:
+              <p><code>qemu-system-i386 -m 32 -hda image.qcow -chardev<br/> wctablet,id=somename -serial chardev:somename</code></p>
+
+              <div className="pages-img dosQemu"></div>
+            </li>
+
+            <li>
+              Now you can run any DOS programs which use normal DOS-compatible mouse. For example, here we tested it with OpenGEM graphical shell in FreeDOS:
+
+              <div className="pages-img dosQemuDesktop"></div>
+            </li>
+          </ol>
+        </section>
       </main>
       
       <Partners/>
