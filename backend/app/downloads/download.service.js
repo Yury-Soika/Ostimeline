@@ -1,15 +1,14 @@
-const db = require('../_helpers/db');
-const Download = db.Download;
+const downloads = require('../../config/downloads');
 
 module.exports = {
   getAll,
-  getById
+  getById,
 };
 
 async function getAll() {
-  return await Download.find();
+  return downloads;
 }
 
 async function getById(id) {
-  return await Download.findById(id);
+  return downloads.find(download => download.id === parseInt(id));
 }

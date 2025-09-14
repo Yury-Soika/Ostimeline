@@ -9,7 +9,7 @@ import Partners from './../Partners';
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params;
   const user = useSelector(selectUser);
-  const post = useSelector(state => selectPostById(state, postId));
+  const post = useSelector((state) => selectPostById(state, postId));
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -18,42 +18,52 @@ export const SinglePostPage = ({ match }) => {
       await dispatch(deletePost(postId));
     } catch (err) {
       console.error('Failed to delete the post: ', err);
-    }
-    finally {
+    } finally {
       history.push('/');
     }
   };
 
   if (!post) {
     return (
-      <div className="content">
+      <div className='content'>
         <section>
           <h2>Post not found!</h2>
         </section>
 
         <Partners />
       </div>
-    )
+    );
   }
 
   return (
-    <div className="content">
+    <div className='content'>
       <section>
-        <article className="post">
+        <article className='post'>
           <h2>{post.title}</h2>
-          <p className="post-content">{post.content}</p>
-          <Link to={`/editPost/${post.id}`} className="button">
-            {user && <button type="button" className="btn btn--primary btn--medium btn--edit">
-              Edit post
-            </button>}
+          <div className='post-content'>{post.content}</div>
+          <Link to={`/editPost/${post.id}`} className='button'>
+            {user && user.role === 'Admin' && (
+              <button
+                type='button'
+                className='btn btn--primary btn--medium btn--edit'
+              >
+                Edit post
+              </button>
+            )}
           </Link>
-          {user && <button type="button" className="btn btn--primary btn--medium btn--delete" onClick={onDeletePostClicked}>
-            Delete Post
-          </button>}
+          {user && user.role === 'Admin' && (
+            <button
+              type='button'
+              className='btn btn--primary btn--medium btn--delete'
+              onClick={onDeletePostClicked}
+            >
+              Delete Post
+            </button>
+          )}
         </article>
       </section>
 
       <Partners />
     </div>
-  )
-}
+  );
+};

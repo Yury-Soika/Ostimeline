@@ -1,4 +1,0 @@
-﻿{
-    "secret": "TEST",
-    "url": "mongodb+srv://TestUser:TestUser@cluster0-sud9h.mongodb.net/test?retryWrites=true&w=majority"
-}

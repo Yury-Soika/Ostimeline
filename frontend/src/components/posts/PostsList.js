@@ -7,7 +7,7 @@ import {
   fetchPosts,
   selectPostIds,
   selectPostById,
-  deletePost
+  deletePost,
 } from './postsSlice';
 
 let PostExcerpt = ({ postId }) => {
@@ -24,47 +24,56 @@ let PostExcerpt = ({ postId }) => {
   };
 
   const user = useSelector(selectUser);
-  const post = useSelector(state => selectPostById(state, postId));
+  const post = useSelector((state) => selectPostById(state, postId));
   return (
-    <section className="post-excerpt" key={post.id}>
-      <h3 className="post-title">{post.title}</h3>
-      <p className="post-content">{post.content}</p>
+    <section className='post-excerpt' key={post.id}>
+      <h3 className='post-title'>{post.title}</h3>
+      <p className='post-content'>{post.content}</p>
       <Link to={`/posts/${post.id}`}>
-        <button type="button" className="btn btn--primary btn--medium btn--view">
+        <button
+          type='button'
+          className='btn btn--primary btn--medium btn--view'
+        >
           View post
         </button>
       </Link>
-      {user && <button type="button" className="btn btn--primary btn--medium btn--delete" onClick={onDeletePostClicked}>
-        Delete Post
-      </button>}
+      {user && user.role === 'Admin' && (
+        <button
+          type='button'
+          className='btn btn--primary btn--medium btn--delete'
+          onClick={onDeletePostClicked}
+        >
+          Delete Post
+        </button>
+      )}
     </section>
-  )
-}
+  );
+};
 
 PostExcerpt = React.memo(PostExcerpt);
 
 export const PostsList = () => {
   const dispatch = useDispatch();
   const orderedPostIds = useSelector(selectPostIds);
-  const postStatus = useSelector(state => state.posts.status)
+  const postStatus = useSelector((state) => state.posts.status);
 
   useEffect(() => {
     if (postStatus === 'idle') {
-      dispatch(fetchPosts())
+      dispatch(fetchPosts());
     }
   }, [postStatus, dispatch]);
 
-  let content
+  let content;
 
   if (postStatus === 'loading') {
-    content = <div className="loader">Loading...</div>
+    content = <div className='loader'>Loading...</div>;
   } else if (postStatus === 'succeeded') {
-    content = orderedPostIds.map(postId => (
+    content = orderedPostIds.map((postId) => (
       <PostExcerpt key={postId} postId={postId} />
-    ))
+    ));
   } else if (postStatus === 'error') {
-    content = <div>{error}</div>
+    content = <div>{error}</div>;
   }
 
-  return <>{content}</>
-}
+  return <>{content}</>;
+};

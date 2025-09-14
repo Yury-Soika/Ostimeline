@@ -1,20 +1,66 @@
-version: '2'
+version: '3.8'
+
 services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: ostimeline_postgres
+    environment:
+      - POSTGRES_DB=ostimeline
+      - POSTGRES_USER=ostimeline_user
+      - POSTGRES_PASSWORD=ostimeline_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/seed.js:/docker-entrypoint-initdb.d/seed.js
+    ports:
+      - '5432:5432'
+    networks:
+      - ostimeline_network
+    restart: unless-stopped
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ostimeline_backend
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=ostimeline
+      - DB_USER=ostimeline_user
+      - DB_PASSWORD=ostimeline_password
+    networks:
+      - ostimeline_network
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'node', 'healthcheck.js']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend (React + Nginx)
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ostimeline_frontend
     ports:
       - '80:80'
     depends_on:
       - backend
-  backend:
-    build: ./backend
-    ports:
-      - '8080:8080'
-    volumes:
-      - /home/dev/Documents/MagDocs/:/home/dev/Documents/MagDocs/
-    depends_on:
-      - mongo
-  mongo:
-    image: mongo
-    ports:
-      - '27017:27017'
+    networks:
+      - ostimeline_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  ostimeline_network:
+    driver: bridge

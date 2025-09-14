@@ -1,35 +1,46 @@
-﻿const db = require('../_helpers/db');
-const Post = db.Post;
+﻿const AppDataSource = require('../../database');
 
 module.exports = {
   getAll,
+  getById,
   create,
   update,
-  delete: _delete
+  delete: _delete,
 };
 
 async function getAll() {
-  return await Post.find();
+  const postRepository = AppDataSource.getRepository('Post');
+  return await postRepository.find({
+    order: { createdAt: 'DESC' },
+  });
+}
+
+async function getById(id) {
+  const postRepository = AppDataSource.getRepository('Post');
+  return await postRepository.findOne({ where: { id } });
 }
 
 async function create(postParam) {
-  const post = new Post(postParam);
+  const postRepository = AppDataSource.getRepository('Post');
 
-  return await post.save();
+  const post = postRepository.create(postParam);
+  return await postRepository.save(post);
 }
 
 async function update(id, postParam) {
-  const post = await Post.findById(id);
+  const postRepository = AppDataSource.getRepository('Post');
+  const post = await postRepository.findOne({ where: { id } });
 
   // validate
   if (!post) throw 'Post not found';
-  
-  // copy userParam properties to user
+
+  // copy postParam properties to post
   Object.assign(post, postParam);
 
-  return await post.save();
+  return await postRepository.save(post);
 }
 
 async function _delete(id) {
-  await Post.findByIdAndRemove(id);
+  const postRepository = AppDataSource.getRepository('Post');
+  await postRepository.delete(id);
 }
