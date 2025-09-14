@@ -1,6 +1,8 @@
 const jwt = require('express-jwt');
-const { secret } = require('../../config.json');
 const AppDataSource = require('../../database');
+
+// JWT secret - in production, use environment variable
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 module.exports = authorize;
 
@@ -13,7 +15,7 @@ function authorize(roles = []) {
 
   return [
     // authenticate JWT token and attach user to request object (req.user)
-    jwt({ secret, algorithms: ['HS256'] }),
+    jwt({ secret: JWT_SECRET, algorithms: ['HS256'] }),
 
     // authorize based on user role
     async (req, res, next) => {

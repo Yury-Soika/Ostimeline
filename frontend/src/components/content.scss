@@ -85,8 +85,13 @@
     overflow: hidden;
   }
 
+
   .post-excerpt .post-title {
     -webkit-line-clamp: 1;
+  }
+
+  .post-content {
+    font-size: 1rem;
   }
 }
 
